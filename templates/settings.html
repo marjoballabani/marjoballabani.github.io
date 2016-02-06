@@ -1,0 +1,148 @@
+<ion-view class="ionic">
+    
+    <div style="background:{{routeColor}};height:5px;"></div>
+    <div class="bar bar-header bar-vodafone">
+        <button class="button button-icon icon flat pull-left">
+            <i class="view_icon font_36 ion-android-settings" style="color: {{routeColor}};"></i>
+        </button>
+        <h1 class="title fab-left right_80">{{labelz.settings_label}}</h1>
+        <button class="button button-icon icon flat pull-right-second" menu-toggle="left" ng-click="toggleMenu('open')">
+            <div class="menu menu_material {{classs}}">
+                <span></span>
+            </div>
+        </button>
+         <button class="button button-icon icon ion-home flat " ui-sref="main.dashboard"></button>
+   </div>
+
+    <div ng-if="showFullSpinner" class="has-header spinner_container">
+        <ion-spinner icon="lines" class="spinner-dark"></ion-spinner>
+    </div>
+    <ion-content class="has-header"  ng-attr-has-bouncing="{{ionic.Platform.isIOS()? 'true' : 'false'}}" ng-attr-overflow-scroll="{{ionic.Platform.isIOS()? 'false' : 'true'}}">
+
+        <!--  1.   -->
+
+        <div class="item bg lgray pad_v item-icon-left item-icon-right">
+            
+            <i class="icon font_30 ion-earth color gray"></i>
+            <span class="font_16 color black pad pad_v alpha_v">{{labelz.language_label}}</span>
+            
+        </div>
+        <div class="item item-icon-right bg white" ng-click="toChangeLanguage('1')">
+             <label class="radio_material font_16">
+                <input id="radio2" type="radio" ng-checked="userSettings.language+'' === '1'" name="language">
+                <span class="outer">
+                    <span class="inner"></span>
+                </span>
+                 {{labelz.albanian_label}}
+            </label>
+        </div>
+            
+        <div class="item item-icon-right  bg white" ng-click="toChangeLanguage('2')">
+            <label class="radio_material font_16">
+                <input id="radio2" type="radio" ng-checked="userSettings.language+'' === '2'" name="language">
+                <span class="outer">
+                    <span class="inner"></span>
+                </span>
+                {{labelz.english_label}}
+            </label>
+        </div>
+
+        <div class="item bg lgray pad_v item-icon-left item-icon-right">
+            <i class="icon font_30 ion-android-notifications color gray"></i>
+            <span class="font_16 color black pad pad_v alpha_v">{{labelz.notification_label}}</span>
+
+            <span class="toggle_material" ng-click="userSettings.notify = !userSettings.notify">
+                <input type="checkbox" ng-model="userSettings.notify" class="switch" />
+                <label></label>
+            </span>
+        </div>
+        <span ng-class="{'disabled_settings_block':!userSettings.notify}">
+            <div class="item item-checkbox-right">
+                {{labelz.show_report_statuses}}
+                <label class="checkbox checkbox_material">
+                    <input type="checkbox" ng-model="userSettings.events[3].active">
+                </label>
+            </div>
+            <div class="item item-checkbox-right">
+                {{labelz.when_traffiv_over_90}}
+                <label class="checkbox checkbox_material">
+                    <input type="checkbox" ng-model="userSettings.events[0].active">
+                </label>
+            </div>
+
+            <div class="item item-checkbox-right">
+                {{labelz.when_streen_blocked}} 
+                <label class="checkbox checkbox_material">
+                    <input type="checkbox" ng-model="userSettings.events[1].active">
+                </label>
+            </div>
+
+            <div class="item item-checkbox-right">
+                <!--{{labelz.show_planned_notifications}}--> 
+                {{labelz.show_planned_notifications}}
+                <label class="checkbox checkbox_material">
+                    <input type="checkbox" ng-model="userSettings.events[2].active">
+                </label>
+            </div>
+
+             <!-- 2. -->
+
+
+            <div class="item  item-icon-right" ng-click="streetModal()">
+                {{labelz.notifications_selected_streets}}
+                 <i class="icon font_22 ion-ios-arrow-down"></i>
+                <div class="font_12 line_16" style="white-space: normal;color:#aaa;">
+                    <span ng-if="!userSettings.streetsAll">
+                        <span ng-repeat="streetValue in selectedStreets">
+                            {{streetValue}}{{$last ? '' : ', '}}
+                        </span>
+                    </span>
+                    <span ng-if="userSettings.streetsAll">
+                        {{labelz.streets_all}}
+                    </span>
+                </div>
+            </div>
+        </span>
+        <!--  3.   -->
+
+        <div class="item bg lgray pad_v item-icon-left item-icon-right">
+            <i class="icon font_30 ion-android-notifications color gray"></i>
+            <span class="font_16 color black pad pad_v alpha_v">{{labelz.notify_only_at}}</span>
+            <i class="icon ion-ios-information-outline color font_28 color orange pad" style="margin-right: -10px;" ng-click="makeToast(labelz.notify_only_at_info)"></i>
+        </div>
+        
+        <span ng-class="{ 'disabled_settings_block':!userSettings.notify }">
+                <div class="item item-checkbox-right">
+                    {{labelz.anytime}} 
+                    <label class="checkbox checkbox_material">
+                        <input type="checkbox" ng-model="userSettings.digest.anytime">
+                    </label>
+                </div>
+            
+                <div class="item item-icon-right" ng-disabled="userSettings.digest.anytime"  ng-click="userSettings.digest.anytime || (digestWeek = !digestWeek)">
+                    {{labelz.week_days}} 
+                    <i class="icon font_22" ng-class="{'ion-ios-arrow-down':(digestWeek === false),'ion-ios-arrow-up':(digestWeek === true)}"></i>
+                </div>
+
+                <span ng-show="userSettings.notify && digestWeek && !userSettings.digest.anytime">
+                    <div class="item item-checkbox-left"  ng-repeat="day in [1, 2, 3, 4, 5, 6, 7]">
+                        <label class="checkbox checkbox_material">
+                            <input type="checkbox" ng-model="userSettings.digest.weekdays[$index]"/>
+                        </label>
+                        <span>{{labelz['day_' + ($index + 1)]}}</span>
+                    </div>
+                </span>
+
+                <div class="item pos_relative">
+                    {{labelz.start}}
+                    <input class="input_time" type="time" ng-model="userSettings.digest.start" ng-change="timeOnChange()"/>
+                </div>
+                <div class="item pos_relative">
+                    {{labelz.finnish}}
+                    <input class="input_time" type="time" ng-model="userSettings.digest.finish"/>
+                </div>
+            
+        </span>
+    </ion-content>
+
+</ion-view>

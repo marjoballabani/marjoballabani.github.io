@@ -1,0 +1,8 @@
+<div class="modal image-modal transparent" ng-click="closeModal()">
+    <div class="icon ion-close color yellow font_32 pos_absolute" style="top:16px;right:16px;"></div>
+    <ion-slide-box on-slide-changed="slideChanged(index)" show-pager="true" active-slide="activeSlide">
+        <ion-slide  ng-repeat="item in poi.poi_image_gallery">
+            <img ng-src="{{item.image_bimg_src}}" class="fullscreen-image"/>
+        </ion-slide>
+    </ion-slide-box>
+</div>

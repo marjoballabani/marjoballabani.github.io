@@ -1,0 +1,34 @@
+<ion-view class="ionic" cache-view="false">
+    <div class="bg_animation pos_relative" style="background:{{routeColor}};height:5px;z-index: 2;"></div>
+    <div class="bar bar-header bar-vodafone">
+        <button class="button button-icon icon flat pull-left">
+           <i class="view_icon font_36 ion-android-car" style="color: {{routeColor}};"></i>
+        </button>
+        <h1 class="title fab-left right_80">{{labelz.rlt_label}}</h1>
+        <button class="button button-icon icon flat pull-right-second" menu-toggle="left" ng-click="toggleMenu('open')">
+            <div class="menu menu_material {{classs}}">
+                <span></span>
+            </div>
+        </button>
+         <button class="button button-icon icon ion-home flat " ui-sref="main.dashboard"></button>
+    </div>
+    <div ng-if="showFullSpinner" class="has-header spinner_container">
+        <ion-spinner icon="lines" class="spinner-dark"></ion-spinner>
+    </div>
+    <div class="content map_container" data-tap-disabled="true">
+
+        <switch-template templateurl="templates/switchtemplate/trafficlegend.html"></switch-template>
+
+        <div id="maprltraffic" style="height:100%;width:100%;"> </div>
+        <button class="button button-fab button-fab-sml bg lblue font_26 ion-android-locate button-fab-bottom-left" ng-click="setView();"></button>
+
+    </div>
+    
+    <div class="button-bar pos_absolute traffic_data_change">
+
+        <!--<button class="fl_left grid_33 button button-small button-outline light-bg ion-android-car" ng-class="{'button_active':(mapDataType[0] === true)}" ng-click="mapType(0)"></button>-->
+        <button class="fl_left grid_33 button button-small button-outline  light-bg ion-stats-bars" ng-class="{'button_active':(mapDataType[1] === true)}" ng-click="mapType(1)"></button>
+        <button class="fl_left grid_33 button button-small button-outline light-bg ion-speedometer" ng-class="{'button_active':(mapDataType[2] === true)}" ng-click="mapType(2)"></button>
+
+    </div>
+</ion-view>

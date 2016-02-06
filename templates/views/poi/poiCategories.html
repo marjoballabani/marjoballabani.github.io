@@ -1,0 +1,42 @@
+<ion-view class="ionic" on-swipe-right="onSwipeRight()"   on-swipe-left="onSwipeLeft()">
+    <div style="background:{{routeColor}};height:5px;"></div>
+    <div class="bar bar-header bar-vodafone">
+        <button class="button button-icon icon flat pull-left">
+           <i class="view_icon font_36 ion-map" style="color: {{routeColor}};"></i>
+        </button>
+        <h1 class="title fab-left right_80">{{labelz.poi_label}}</h1>
+        <!--<button class="button button-icon icon ion-android-more-vertical flat pull-right" ng-click="openPopover($event)"></button>-->
+        <button class="button button-icon icon ion-android-search flat pull-right-second" ng-class="{ 'color red' : searchShow }" ng-click="toggleSearch()"></button>
+        <button class="button button-icon icon flat " menu-toggle="left" ng-click="toggleMenu('open')">
+            <div class="menu menu_material {{classs}}">
+                <span></span>
+            </div>
+        </button>
+    </div>
+    <!-- Poi Search -->
+    <switch-template class="has-header search_container" ng-if="searchShow" templateurl="templates/switchtemplate/poisearch.html"></switch-template>
+    
+    <div ng-if="showFullSpinner || poiCatInitedRoute" class="has-header spinner_container">
+        <ion-spinner icon="lines" class="spinner-dark"></ion-spinner>
+    </div>
+    
+    <ion-content class="has-header" ng-attr-has-bouncing="{{ionic.Platform.isIOS()? 'true' : 'false'}}" ng-attr-overflow-scroll="{{ionic.Platform.isIOS()? 'false' : 'true'}}">
+        <div class="clearfix list condensed-space no-padding pad_v_half pad_half grid_material" ng-class="{ 'show': gridShow }">
+            
+            <div class="fl_left-lg grid_50-lg"
+                 ng-repeat="category in categoryData.categories"
+                 style="transition-delay: {{$index * 100}}ms;-webkit-transition-delay: {{$index * 100}}ms;-webkit-transform-origin: 0 0;transform-origin: 0 0;">
+                
+                <div class="card">
+                    <a class="item clear-bg media_ratio_16_8 item-bg-image waves-effect has-mask-reverse"
+                       href="#/main/poi/list/{{category.category_id}}/{{fromCategory}}/{{category.category_title}}/{{stateParams.activeNr}}/{{stateParams.color}}">
+                        <h2 class="marg_v alpha_v">{{category.category_title}}</h2>
+                        <p>{{category.category_desc}}</p>
+                        <img class="full-image" ng-src="{{category.category_simg_src}}">
+                     </a>
+                </div>
+            </div>
+
+        </div>
+    </ion-content>
+</ion-view>

@@ -1,0 +1,42 @@
+{
+    "live": [
+        {
+            "title": "Rruga Elbasanit",
+            "occupancy": "82"
+        }
+    ],
+    "planned": [
+        {
+            "id": "1",
+            "title": "Rruga Elbasanit",
+            "description": "Lorem Ipsum dolor iset,lorem Ipsum dolor iset",
+            "date": "30 April, 2015",
+            "timeFrom": "16:00",
+            "timeTo": "18:00",
+            "segmentsAffected": [84, 85, 86, 87],
+            "pointsRelated": [
+                {
+                    "id": "1",
+                    "latitude": 41.324573,
+                    "longitude": 19.825075
+                }
+            ]
+        },
+        {
+            "id": "2",
+            "title": "Rruga e Durr\u00ebsit",
+            "description": "Lorem Ipsum dolor iset,lorem Ipsum dolor iset",
+            "date": "1 May, 2015",
+            "timeFrom": "10:00",
+            "timeTo": "12:00",
+            "segmentsAffected": [36, 37, 38, 39],
+            "pointsRelated": [
+                {
+                    "id": "1",
+                    "latitude": 41.329875,
+                    "longitude": 19.813488
+                }
+            ]
+        }
+    ]
+}

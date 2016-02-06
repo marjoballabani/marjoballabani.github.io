@@ -1,0 +1,24 @@
+<ion-view class="ionic" cache-view="false">
+    <div class="pos_relative" style="background:{{routeColor}};height:5px;z-index: 2;"></div>
+    <div class="bar bar-header bar-vodafone">
+        <button class="button button-icon icon flat pull-left">
+            <i class="view_icon font_36 {{reportIcon}}" style="color: {{routeColor}};"></i>
+        </button>
+        <h1 class="title fab-left right_80">
+           {{labelz.report_label}}
+        </h1>
+        <button class="button button-icon icon flat pull-right-second" menu-toggle="left" ng-click="toggleMenu('open')">
+            <div class="menu menu_material {{classs}}">
+                <span></span>
+            </div>
+        </button>
+         <button class="button button-icon icon ion-home flat " ui-sref="main.dashboard"></button>
+    </div>
+    <div ng-if="showFullSpinner" class="has-header spinner_container">
+        <ion-spinner icon="lines" class="spinner-dark"></ion-spinner>
+    </div>
+
+    <div class="content content_full" style="overflow-y: auto;">
+
+    </div>
+</ion-view>

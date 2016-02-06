@@ -1,0 +1,22 @@
+<ion-view class="ionic">
+    <div style="background:{{routeColor}};height:5px;"></div>
+    <div class="bar bar-header bar-vodafone">
+        <button class="button button-icon icon flat pull-left">
+            <img width="40" height="40" src="assets/graphics/logo_1.png"/>
+        </button>
+        <h1 class="title fab-left">{{labelz.credits_label}}</h1>
+        <button class="button button-icon icon flat " menu-toggle="left" ng-click="toggleMenu('open')">
+            <div class="menu menu_material {{classs}}">
+                <span></span>
+            </div>
+        </button>
+    </div>
+    
+    <div ng-if="showFullSpinner" class="has-header spinner_container">
+        <ion-spinner icon="lines" class="spinner-dark"></ion-spinner>
+    </div>
+    <ion-content class="has-header">
+       {{labelz.credits_label}}
+    </ion-content>
+    
+</ion-view>

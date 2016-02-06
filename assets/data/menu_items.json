@@ -1,0 +1,66 @@
+[
+	{
+		"stateUrl" : "#/main/report/0/icon-trash",
+		"title": "report_pollution",
+		"iconClass": "icon-trash",
+		"colorClass": "red",
+		"gridClass": "grid_50-sm grid_50-lg",
+                "activeNr" : 1,
+                "inDashboard" : true
+	},
+        {
+		"stateUrl" : "#/main/transport",
+		"title": "transport",
+		"iconClass": "ion-android-bus",
+		"colorClass": "red",
+		"gridClass": "grid_50-sm grid_50-lg",
+                "activeNr" : 12,
+                "inDashboard" : true
+	},
+        {
+		"stateUrl" : "#/main/poimap",
+		"title": "label_turism",
+		"iconClass": "ion-map",
+		"colorClass": "red",
+		"gridClass": "grid_50-sm grid_60-lg",
+                "activeNr" : 5,
+                "inDashboard" : true
+	},
+        {
+		"stateUrl" : "#/main/traffic",
+		"title": "traffic_label",
+		"iconClass": "icon-bicycle-unselected bg-size-32-32",
+                "iconClassDashboard" : "icon-bicycle bg-size-80-80 marg_v omega_v",
+		"colorClass": "red",
+		"gridClass": "grid_50-sm grid_40-lg",
+                "activeNr" : 2,
+                "inDashboard" : true
+	},
+         {
+		"stateUrl" : "#/main/info",
+		"title": "info_label",
+		"iconClass": "icon-info",
+		"colorClass": "red",
+		"gridClass": "grid_50-sm grid_50-lg",
+                "activeNr" : 11,
+                "inDashboard" : true
+	},
+         {
+		"stateUrl" : "#/main/reportactions/ion-paper-airplane",
+		"title": "report_label",
+		"iconClass": "ion-paper-airplane",
+		"colorClass": "red",
+		"gridClass": "grid_50-sm grid_50-lg",
+                "activeNr" : 10,
+                "inDashboard" : true
+	},
+        {
+		"stateUrl" : "#/main/settings",
+		"title": "settings_label",
+		"iconClass": "ion-android-settings",
+		"colorClass": "red",
+		"gridClass": "",
+                "activeNr" : 20,
+                "inDashboard" : false
+	}
+]

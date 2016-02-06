@@ -1,0 +1,79 @@
+<ion-view class="ionic" cache-view="false">
+    <div class="bg_animation pos_relative" style="background:{{routeColor}};height:5px;z-index: 2;"></div>
+    <div class="bar bar-header bar-vodafone">
+        <button class="button button-icon icon flat pull-left">
+             <i class="view_icon font_36 ion-compass" style="color: {{routeColor}};"></i>
+        </button>
+        <h1 class="title fab-left right_30">{{labelz.drivingmode_label}}</h1>
+        <button class="button button-icon icon flat " menu-toggle="left" ng-click="toggleMenu('open')">
+            <div class="menu menu_material {{classs}}">
+                <span></span>
+            </div>
+        </button>
+    </div>
+    <div ng-if="showFullSpinner" class="has-header spinner_container">
+        <ion-spinner icon="lines" class="spinner-dark"></ion-spinner>
+    </div>
+    <div class="content map_container navigation_mode" data-tap-disabled="true">
+
+        <!-- zoom fillon nga user zoom edhe rritet / zvogelohet  -->
+        <div class="navigation_disable_map" ng-if="!closeUpMode" detect-gestures></div>
+
+        <!-- zoom level i pandryshueshem -->
+        <div class="navigation_disable_map" ng-if="closeUpMode" on-swipe="makeToast(labelz.pan_disabled_on_nav_mode)"></div>
+
+        <div class="card bg white pad_v_half pos_absolute row" style="z-index: 100;right:0;max-width: 300px;">
+            
+            <div class="col col-33 alpha_v omega_v txt_center">
+                <div class="txt_center font_26 bold pad_v_half omega_v">{{(ourSpeed && ourSpeed !== 0) ? ourSpeed : '...'}}</div>
+                <span class="txt_center font_18 pad_v_half alpha_v">{{labelz.speed}}</span>
+            </div>
+            
+            <div class="col pad col-66 font_26" style="border-left: 2px solid #333;">
+                <i class="icon ion-compass font_36 pos_relative" style="top:2px;"></i>
+                <span class="">{{directionLabel}}</span>
+                <div class="font_16 fl_right txt_center" style="width: 98px;line-height: 19px;max-height: 39px; overflow: hidden;">{{streetName}}</div>
+            </div>
+            
+        </div>
+        
+<!--        <div ng-if="(gpsOpened === false && gpsMsgShow !== false)" class="row color white pos_absolute snackbar zindex_10">
+            <div class="col col-50">{{labelz.activate_gps_message}}</div>
+            <div ng-click="openGps()" class="col col-25 txt_ellipse txt_right color green">{{labelz.activate_gps_button_label}}</div>
+            <div ng-click="closeGpsMsg()" class="col col-25 txt_ellipse txt_right color orange">{{labelz.dismiss_button_label}}</div>
+        </div>-->
+
+        <div
+            id="maprltraffic" rotate-map 
+            class="map_rotate deg_{{mapRotateDegree ? mapRotateDegree : 0}}"
+            style="height:{{thisMapHeight}}px;width:{{thisMapWidth}}px; margin-left: {{leftMinusMargin}}px;margin-top:{{topMinusMargin}}px;">
+        </div>
+        
+        <!--Navigation block-->
+<!--        <div class="rltwrap" ng-class="{ 'active': navigationMode }">
+            <div class="txt_center pos_relative bg lgray" style="z-index: 2;">
+                <i class="icon ion-chevron-down color black"></i>
+            </div>
+            <div class="bg black pos_relative" style="z-index: 2;border-radius: 4px;">
+                <div class="txt_center font_16 pad_v_half omega_v">{{ (ourSpeed && ourSpeed !== 0) ? ourSpeed : '...'}}</div>
+                <div class="txt_center font_10 line_16 pad_v_half alpha_v">km/h</div>
+            </div>
+            <button class="button button-fab button_rlt_closeup sm button-fab-bottom-right icon ion-navigate waves-effect waves-light"
+                    ng-class="{'color sred rotate_80':closeUpMode}" ng-click="changeCloseUpMode()">
+            </button>
+        </div>-->
+
+        <button class="button button-fab button_rlt_locate button-fab-bottom-right icon ion-navigate waves-effect waves-light"
+                ng-class="{'bg sviolet rotate_90':closeUpMode,'bg white': !closeUpMode}"
+                 ng-click="changeCloseUpMode()"> </button>
+    </div>
+    <div class="pos_absolute traffic_data_change">
+        <div style="padding: 3px 5px;">{{mapTypeLabel}}</div>
+       <div class="button-bar">
+            <button class="fl_left grid_33 button button-small button-outline light-bg ion-android-car" ng-class="{'button_active':(mapDataType[0] === true)}" ng-click="mapType(0)"></button>
+            <button class="fl_left grid_33 button button-small button-outline  light-bg ion-stats-bars" ng-class="{'button_active':(mapDataType[1] === true)}" ng-click="mapType(1)"></button>
+            <button class="fl_left grid_33 button button-small button-outline light-bg ion-speedometer" ng-class="{'button_active':(mapDataType[2] === true)}" ng-click="mapType(2)"></button>
+
+        </div>
+    </div>
+</ion-view>

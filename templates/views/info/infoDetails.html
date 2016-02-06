@@ -1,0 +1,88 @@
+<ion-view class="ionic" on-swipe-right="onSwipeRight()"  on-swipe-left="onSwipeLeft()">
+    <div style="background:{{routeColor}};height:5px;"></div>
+    <div class="bar bar-header bar-vodafone">
+         <button class="button button-icon icon flat pull-left">
+           <i class="view_icon font_36 icon-info" style="color: {{routeColor}};"></i>
+        </button>
+        <h1 class="title fab-left right_double">{{ stateParams.activeinfo ? stateParams.activeinfo : labelz.info_label}}
+            <!--<button class="button button-icon icon ion-android-map flat pull-right" ng-click="infoMapModal()"></button>-->
+        </h1>
+        
+        <button class="button button-icon icon flat pull-right-second" menu-toggle="left" ng-click="toggleMenu('open')">
+            <div class="menu menu_material {{classs}}">
+                <span></span>
+            </div>
+        </button>
+         <button class="button button-icon icon ion-home flat " ui-sref="main.dashboard"></button>
+    </div>
+    
+    <div ng-if="showFullSpinner" class="has-header spinner_container">
+        <ion-spinner icon="lines" class="spinner-dark"></ion-spinner>
+    </div>
+    <ion-content class="has-header info-content"  ng-attr-has-bouncing="{{ionic.Platform.isIOS()? 'true' : 'false'}}" ng-attr-overflow-scroll="{{ionic.Platform.isIOS()? 'false' : 'true'}}">
+       
+        <div  ng-if="stateParams.getfunc === 'getNjesite'">
+            {{vm.tableParams}}
+            <table ng-table="tableParams" class="table table-condensed table-bordered table-striped">
+                <tr ng-repeat="row in $data"  class="ng-table-sort-header">
+                    <td style="width: 17%;" data-title="'Njësia'" sortable="'njesia'" >{{row.njesia}}</td>
+                    <td  style="width: 25%;" data-title="'Adresa'" sortable="'adresa'">{{row.adresa}}</td>
+                    <td  style="width: 32%;" data-title="'E-mail'" sortable="'email'">
+                        <a class="color lblue" style="word-break: break-all;" href="mailto:{{row.email}}">{{row.email}}</a>
+                    </td>
+                    <td  style="width: 30%;" data-title="'Tel'" sortable="'tel'">
+                        <div ng-repeat="tel in row.tel" class="marg_v_half alpha_v font_11">
+                            Nr.{{$index+1}}: <a class="color lblue" href="tel:{{tel}}">{{tel}}</a>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        
+        <div ng-if="stateParams.getfunc === 'getNdermarrjet'">
+            {{vm.tableParams}}
+            <table ng-table="tableParams" class="table table-condensed table-bordered table-striped"  show-filter="true">
+                <tr ng-repeat="row in $data"  class="ng-table-sort-header">
+                    <td style="width: 25%;" data-title="'Emri'" sortable="'emri'" filter="{emri : 'text'}">{{row.emri}}</td>
+                    <!--<td  style="width: 15%;" data-title="'Drejtor'" sortable="'drejtor'">{{row.drejtor}}</td>-->
+                    <td  style="width: 15%;" data-title="'Njësia'" sortable="'njesia'">{{row.njesia}}</td>
+                    <td  style="/*width: 42%;*/" data-title="'Adresa'" sortable="'adresa'">{{row.adresa}}</td>
+                </tr>
+            </table>
+        </div>
+        <div ng-if="stateParams.getfunc === 'getKopshtet'">
+            <table ng-table="tableParams" class="table table-condensed table-bordered table-striped"  show-filter="true">
+                <tr ng-repeat="row in $data"  class="ng-table-sort-header">
+                    <td style="width: 10%;" data-title="'Nr'" sortable="'nr'">{{row.nr}}</td>
+                    <td style="width: 30%;" data-title="'Emri'" sortable="'emri'"  filter="{emri : 'text'}">{{row.emri}}</td>
+                    <td style="width: 10%;" data-title="'Njësia'" sortable="'njesia'">{{row.njesia}}</td>
+                    <td style="width: 40%;" data-title="'Adresa'" sortable="'adresa'">{{row.adresa}}</td>
+                     <td style="width: 10%;" data-title="'Drekë'" sortable="'dreke'">{{row.dreke}}</td>
+                </tr>
+            </table>
+        </div>
+        <div ng-if="stateParams.getfunc === 'getShkollat'">
+            {{vm.tableParams}}
+            <table ng-table="tableParams" class="table table-condensed table-bordered table-striped" show-filter="true">
+                <tr ng-repeat="row in $data"  class="ng-table-sort-header">
+                    <td data-title="'Nr'" sortable="'nr'">{{row.nr}}</td>
+                    <td data-title="'Emri'" sortable="'emri'"  filter="{emri : 'text'}">{{row.emri}}</td>
+                    <td data-title="'Vendndodhja'" sortable="'vendndodhja'">{{row.vendndodhja}}</td>
+                </tr>
+            </table>
+        </div>
+        <div ng-if="stateParams.getfunc === 'getShkollatKom'">
+            {{vm.tableParams}}
+            <table ng-table="tableParams" class="table table-condensed table-bordered table-striped" show-filter="true">
+                <tr ng-repeat="row in $data"  class="ng-table-sort-header">
+                    <td data-title="'Emri'"  sortable="'emri'"  filter="{emri : 'text'}">{{row.emri}}</td>
+                    <td data-title="'Njësia'" sortable="'njesia'">{{row.njesia}}</td>
+                    <td data-title="'Vendi'"  sortable="'vendi'">{{row.vendi}}</td>
+                    <!--<td data-title="'Bashki / Komunë'"  sortable="'bashki/komune'">{{row["bashki/komune"]}}</td>-->
+                    <td data-title="'Fshat / Qytet'" sortable="'fshat/qytet'">{{row["fshat/qytet"]}}</td>
+                </tr>
+            </table>
+        </div>
+    
+    </ion-content>
+</ion-view>

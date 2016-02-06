@@ -1,0 +1,21 @@
+<div class="list alpha_v search_showdown clearfix" ng-class="{'in' : searchAnimClass ,'out': !searchAnimClass}">
+    <div class="card">
+        <label class="item item-input stable-bg pad_v color gray">
+            
+            <ion-spinner icon="ios-small" ng-if="isSearching" class="search_spinner"></ion-spinner>
+            <i class="icon ion-android-search font_30" style="padding-left:4px;padding-right:3.5px;"></i>
+            
+            <input type="search" placeholder="{{labelz.search}}..." ng-change="search(searched)" ng-model="searched" class="font_20 pad_double" style="line-height: 34px;">
+        </label>
+        <div class="icon ion-android-close font_30 color gray search_clear" ng-click="search('')"></div>
+    </div>
+    <div class="card" ng-repeat="poisearch in poiSearchList"
+         ui-sref="main.poidetails({ poi_id : poisearch.poi_id, requesturl : fromList, activeNr: stateParams.activeNr, color: stateParams.color})" >
+        <div class="item item-thumbnail-left item-avatar search_item item-text-wrap stable-bg waves-effect waves-block waves-dark">
+            <span class="avatar no_radius" style="background-image : url({{poisearch.poi_simg_src}});"></span>
+          
+            <div class="font_20 pad_v">{{poisearch.poi_title}}</div>
+            <p style="line-height:20px; max-height: 60px; overflow: hidden;">{{poisearch.poi_desc}}</p>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,37 @@
+<ion-view  class="ionic" on-swipe-right="onSwipeRight()" on-swipe-left="onSwipeLeft()">
+    <div class="bg_animation" style="background:#e60000;height:5px;"></div>
+
+    <div class="bar bar-header bar-vodafone">
+        <button class="button button-icon icon flat pull-left">
+            <img width="40" height="40" src="assets/graphics/header_icon.png"/>
+        </button>
+        <h1 class="title fab-left">{{labelz.app_name}} </h1>
+        <button class="button button-icon icon flat  pull-right" menu-toggle="left" ng-click="toggleMenu('open')">
+            <div class="menu menu_material {{classs}}">
+                <span></span>
+            </div>
+        </button>
+    </div>
+
+    <ion-content class="has-header" style="bottom: 56px;" has-bouncing="true">
+
+        <div class="scroll list condensed-space no-padding">
+
+            <div class="clearfix pad_v_double-lg pad_v_half-sm omega_v pad_half dashboard_container grid_material" ng-class="{ 'show': gridShow }">
+
+                <div class="da_block {{item.gridClass}} ripple_white" ripple-effect ng-repeat="item in menuItems | inDashboard" style="transition-delay: {{$index * 100}}ms;-webkit-transition-delay: {{$index * 100}}ms">
+                    <div class="da_block_inner">
+                        <a class="item clear-bg item-bg-image" href="{{item.stateUrl}}/{{item.activeNr}}/{{item.colorClass}}">
+                            <div class="da_block_icon color {{item.colorClass}}">
+                                <i class="{{item.iconClassDashboard ? item.iconClassDashboard : item.iconClass}}"></i>
+                            </div>
+                            <div class="da_block_title marg_half">{{labelz[item.title]}}</div>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </ion-content>
+    <switch-template  templateurl="templates/switchtemplate/vodafone_footer.html"></switch-template>
+</ion-view>

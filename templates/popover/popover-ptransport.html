@@ -1,0 +1,20 @@
+<ion-popover-view class="popover_material popover_material_bottom right_2space">
+    <ion-content>
+        <div class="list_vertical_material"  ng-class="{'show': showPopupMaterial}">
+           
+            <a class="item item-icon-right pad_v"
+               ng-repeat="(lineId, line) in pTransportNames" 
+               style='transition-delay: {{$index * 100}}ms; -webkit-transition-delay: {{$index * 100}}ms;'
+                data-line-id='{{lineId}}' ng-click="lineSelected([lineId],true);popoverPTransport.hide()">
+                
+                <h2> 
+                    <span class="line-label" style="color:{{pTransportColors[lineId]}}">{{lineId}}</span>
+                    {{line}} 
+                </h2>
+                
+                <i class="icon ion-arrow-right-c"></i>
+                
+            </a>
+       </div>
+    </ion-content>
+</ion-popover-view>

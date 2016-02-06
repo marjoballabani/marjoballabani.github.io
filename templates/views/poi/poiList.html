@@ -1,0 +1,52 @@
+<ion-view class="ionic" on-swipe-right="onSwipeRight()" on-swipe-left="onSwipeLeft()" cache-view="false">
+    <div style="background:{{routeColor}};height:5px;"></div>
+    <div class="bar bar-header bar-vodafone">
+        <button class="button button-icon icon flat pull-left">
+            <i class="view_icon font_36 ion-map" style="color: {{routeColor}};"></i>
+        </button>
+        <h1 class="title fab-left right_double inside_right_single">
+            {{category_title}}
+            <button class="button button-icon icon ion-android-more-vertical flat pull-right" ng-click="openPopover($event)"></button>
+        </h1>
+
+        <button class="button button-icon icon ion-android-search flat pull-right-second" ng-class="{ 'color red' : searchShow }" ng-click="toggleSearch()"></button>
+        <button class="button button-icon icon flat" menu-toggle="left" ng-click="toggleMenu('open')">
+            <div class="menu menu_material {{classs}}">
+                <span></span>
+            </div>
+        </button>
+    </div>
+    
+    <!-- Poi Search -->
+    <switch-template class="has-header search_container" ng-if="searchShow" templateurl="templates/switchtemplate/poisearch.html"></switch-template>
+    
+     <div ng-if="showFullSpinner" class="has-header spinner_container">
+        <ion-spinner icon="lines" class="spinner-dark"></ion-spinner>
+    </div>
+    
+    <ion-content class="has-header"  ng-attr-has-bouncing="{{ionic.Platform.isIOS()? 'true' : 'false'}}" ng-attr-overflow-scroll="{{ionic.Platform.isIOS()? 'false' : 'true'}}">
+        <div 
+            class="grid_material list condensed-space no-padding pad-xlg pad_v pad_half-sm"
+            ng-class="{ 'show': gridShow }">
+             <!--ng-repeat="poi in categoryData.categories"-->
+             <div class="fl_left-lg grid_50-lg" ng-repeat="poi in poiList"
+                  style="transition-delay: {{$index * 100}}ms;-webkit-transition-delay: {{$index * 100}}ms;-webkit-transform-origin: 0 0;transform-origin: 0 0;">
+                <div
+                    class="card card-gallery item item-text-wrap"
+                    ui-sref="main.poidetails({ poi_id : poi.poi_id, requesturl : fromList, activeNr: stateParams.activeNr, color: stateParams.color})">
+                    <!--style="border-bottom: 2px solid #428600;"-->
+                    
+                    <div class="media_ratio_16_8">
+                        <h2 class="poi_title">{{poi.poi_title}}</h2>
+                        <img class="full-image" ng-src="{{poi.poi_simg_src}}">
+                    </div>
+                    <div class="item  item-text-wrap">
+                        <div class="poi_description" style="line-height: 20px;height: 40px;overflow: hidden;">
+                            {{poi.poi_desc}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

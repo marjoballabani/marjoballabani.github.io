@@ -1,0 +1,123 @@
+<!-- Traffic -->
+<style type="text/css">
+    .legend-green{
+        background-color: #8bd13a !important;
+    }
+    .legend-yellow{
+        background-color: #ffcc00 !important;
+    }
+    .legend-orange{
+        background-color: #ff6500 !important;
+    }
+    .legend-red{
+        background-color: #ec008c !important;
+    }
+</style>
+<div class="traffic_range pos_absolute card pad_half pad_v_half alpha" ng-if="mapDataType[0]" style="min-width: 285px;">
+
+    <div class="traffic_range_label pad_half font_16">{{labelz.measurements_occupancy}}
+        <i class="icon ion-ios-information-outline color orange pad pos_absolute font_22_before" style="right:-3px;top:3px;" ng-click="makeToast(labelz.legend_occupancy_info)"></i>
+    </div>
+    <div class="traffic_range_inner">
+        <span style="background: green;" class="marg_half traffic_range_color"></span>
+        <span class="traffic_range_number">
+            <i class="icon ion-ios-arrow-left font_14"></i>
+            <span class="font_14">25%</span>
+        </span>
+
+
+        <span  style="background: yellow;" class="bg yellow marg_half traffic_range_color"></span>
+        <span class="traffic_range_number">
+            <span class="font_14">25%</span>
+            <i class="icon ion-android-remove font_14"></i>
+            <span class="font_14">50%</span>
+        </span>
+
+        <span style="background: orange;" class="marg_half traffic_range_color"></span>
+        <span class="traffic_range_number">
+            <span class="font_14">50%</span>
+            <i class="icon ion-android-remove font_14"></i>
+            <span class="font_14">80%</span>
+        </span>
+
+        <span style="background: red;"  class="marg_half traffic_range_color"></span>
+        <span class="traffic_range_number">
+            <i class="icon ion-ios-arrow-right font_14"></i>
+            <span class="font_14">80%</span>
+        </span>
+    </div>
+
+</div>
+
+<!-- Flux -->
+<div class="traffic_range pos_absolute card pad_half pad_v_half alpha" ng-if="mapDataType[1]">
+    <div class="traffic_range_label pad_half  font_16">
+        {{labelz.measurements_flux}} 
+        <i class="icon ion-ios-information-outline color orange pad pos_absolute font_22_before" style="right:-3px;top:3px;" ng-click="makeToast(labelz.legend_flux_info)"></i>
+    </div>
+    <div class="traffic_range_inner">
+        <span  class="marg_half traffic_range_color legend-green"></span>
+        <span class="traffic_range_number">
+            <i class="icon ion-ios-arrow-left font_14"></i>
+            <span class="font_14">500</span>
+        </span>
+
+
+        <span  class="bg yellow marg_half traffic_range_color legend-yellow"></span>
+        <span class="traffic_range_number">
+            <span class="font_14">500</span>
+            <i class="icon ion-android-remove font_14"></i>
+            <span class="font_14">1000</span>
+        </span>
+
+        <span class="marg_half traffic_range_color legend-orange"></span>
+        <span class="traffic_range_number">
+            <span class="font_14">1000</span>
+            <i class="icon ion-android-remove font_14"></i>
+            <span class="font_14">1500</span>
+        </span>
+
+        <span class="marg_half traffic_range_color legend-red"></span>
+        <span class="traffic_range_number">
+            <i class="icon ion-ios-arrow-right font_14"></i>
+            <span class="font_14">1500</span>
+        </span>
+    </div>
+</div>
+
+
+<!-- Speed -->
+<div class="traffic_range pos_absolute card pad_half pad_v_half alpha" ng-if="mapDataType[2]">
+    <div class="traffic_range_label pad_half font_16">{{labelz.measurements_speed}}
+        <i class="icon ion-ios-information-outline color orange pad pos_absolute font_22_before" style="right:-3px;top:3px;" ng-click="makeToast(labelz.legend_speed_info)"></i>
+    </div>
+    <div class="traffic_range_inner">
+        <span class="marg_half traffic_range_color legend-red"></span>
+        <span class="traffic_range_number">
+            <i class="icon ion-ios-arrow-left font_14"></i>
+            <span class="font_14">20</span>
+        </span>
+
+
+        <span  class="bg yellow marg_half traffic_range_color legend-orange"></span>
+        <span class="traffic_range_number">
+            <span class="font_14">20</span>
+            <i class="icon ion-android-remove font_14"></i>
+            <span class="font_14">40</span>
+        </span>
+
+        <span class="marg_half traffic_range_color legend-yellow"></span>
+        <span class="traffic_range_number">
+            <span class="font_14">40</span>
+            <i class="icon ion-android-remove font_14"></i>
+            <span class="font_14">60</span>
+        </span>
+
+        <span class="marg_half traffic_range_color legend-green"></span>
+        <span class="traffic_range_number">
+            <i class="icon ion-ios-arrow-right font_14"></i>
+            <span class="font_14">60</span>
+        </span>
+    </div>
+</div>
+

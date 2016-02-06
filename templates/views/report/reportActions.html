@@ -1,0 +1,78 @@
+<ion-view class="ionic">
+    <div class="pos_relative" style="background:{{routeColor}};height:5px;z-index: 2;"></div>
+    <div class="bar bar-header bar-vodafone">
+        <button class="button button-icon icon flat pull-left">
+            <i class="view_icon font_36 {{reportIcon}}" style="color: {{routeColor}};"></i>
+        </button>
+        <h1 class="title fab-left right_80">
+           {{labelz.report_label}}
+        </h1>
+        <button class="button button-icon icon flat pull-right-second" menu-toggle="left" ng-click="toggleMenu('open')">
+            <div class="menu menu_material {{classs}}">
+                <span></span>
+            </div>
+        </button>
+         <button class="button button-icon icon ion-home flat " ui-sref="main.dashboard"></button>
+    </div>
+    <div ng-if="showFullSpinner" class="has-header spinner_container">
+        <ion-spinner icon="lines" class="spinner-dark"></ion-spinner>
+    </div>
+
+ <ion-content class="has-header"  has-bouncing="true">
+
+        <div class="list list_large">
+            <!--item-icon-left-->
+                <a class="item  item-icon-right" href="#/main/report/-1/ion-paper-airplane/10/red">
+                    <!--<i class="icon ion-paper-airplane color red"></i>-->
+                   {{labelz.report_new_label}}
+                   <i class="icon ion-chevron-right font_24"></i>
+                </a>
+                
+                <a class="item item-icon-left item-icon-right" ng-click="myreporttoggle = !myreporttoggle" style="margin-top:20px;">
+                    <i class="icon ion-android-person color red"></i>
+                    {{labelz.my_reports_label}} 
+                    <i ng-if="!myreporttoggle" class="icon ion-plus font_24"></i>
+                    <i ng-if="myreporttoggle" class="icon ion-minus font_24"></i>
+                </a>
+            <span ng-show=" myreporttoggle == true ">
+                <a class="item i item-icon-right" ng-repeat="status in reportData.status" href="#main/myreports/ion-clipboard/10/red/{{status.id}}/"  style="padding-left: 20px;">
+                    <span class="txt_uppercase">
+                        {{status[reportLang+"_plural"]}} 
+                    </span>
+                    <span class="badge color white" 
+                              style="background-color: {{status.color}};position: absolute; top: 1px;right: 2px;">{{calculateReportsNr(status.id)}}</span>
+                    
+                   <i class="icon ion-chevron-right font_24"></i>
+                </a>
+                
+            </span> 
+            
+
+            <a class="item item-icon-left" style="margin-top:20px;">
+                <i class="icon ion-ios-people color red"></i>
+                {{labelz.other_reports_label}} 
+            </a>
+            
+            <div class="list-view list list_material_lblue alpha_v">
+                <a class="item i item-icon-right" ng-repeat="report in reportsPublic10" href="#main/publicreports/ion-clipboard/10/red/{{$index}}"  style="padding-left: 20px;">
+                   
+                    <div class="item-report-inner txt_ellipse">
+                        <span class="font_17 item-report-main-label"> <strong>{{report.rid}}</strong> | {{report.adresa}} &nbsp;</span>
+                        <div class="clearfix pos_relative">
+                            <div class="font_12 color gray item-report-info-label" style="position: absolute;top: 0;right:0;"> {{report.data_in}} </div>
+                            <div class="font_14 txt_ellipse item-report-secondary-label" style="padding-right: 80px;"> 
+                                {{reportCategories["id_"+report.kategoria]["name"+language]}} 
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                <a class="item i item-icon-right" href="#main/publicreports/ion-clipboard/10/red/">
+                    <span class="pos_relative">
+                        {{labelz.report_public_more}} 
+                    </span>
+                   <i class="icon ion-chevron-right font_24"></i>
+                </a>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

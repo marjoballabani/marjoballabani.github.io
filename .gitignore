@@ -1,0 +1,7 @@
+lib
+META-INF
+res
+AndroidManifest.xml
+classes.dex
+resources.arsc
+.idea

@@ -1,0 +1,138 @@
+<ion-view class="ionic" cache-view="false">
+    <div class="pos_relative" style="background:{{routeColor}};height:5px;z-index: 2;"></div>
+    <div class="bar bar-header bar-vodafone">
+        <button class="button button-icon icon flat pull-left">
+            <i class="view_icon font_36 {{reportIcon}}" style="color: {{routeColor}};"></i>
+        </button>
+        <h1 class="title fab-left right_double inside_right_single">
+            <span ng-if="stateParams.id == -1">{{labelz.report_label}} </span>
+            <span ng-if="!!activeCategory">{{activeCategory.label}}</span>
+            <button class="button button-icon icon ion-help flat pull-right font_28_before" ng-if="categoryLabelActive && activeCategory.desc" ng-click="showPopup($event)"></button>
+        </h1>
+        
+        <button class="button button-icon icon flat pull-right-second" menu-toggle="left" ng-click="toggleMenu('open')">
+            <div class="menu menu_material {{classs}}">
+                <span></span>
+            </div>
+        </button>
+         <button class="button button-icon icon ion-home flat " ui-sref="main.dashboard"></button>
+    </div>
+    <div ng-if="showFullSpinner" class="has-header spinner_container">
+        <ion-spinner icon="lines" class="spinner-dark"> </ion-spinner>
+    </div>
+
+    <div class="content content_full" style="overflow-y: auto;">
+        <div class="pad marg_v_double omega_v">
+            <!--C A T E G O R Y-->
+            <div class="marg_v_double alpha_v">
+
+                <div class="item bg lgray pad_v item-icon-left item-icon-right"  ng-click="categoriesToggle = !categoriesToggle;">
+                    <i class="icon font_30 ion-pricetags color gray"></i>
+                    <span>
+                        {{labelz.report_category_title}} 
+                        <span class="font_12 color brown"><br>{{categoryLabelActive}}</span>
+                    </span>
+                    <i class="icon font_22" ng-show="!categoryNotChangable" ng-class="{'ion-ios-arrow-down':(categoriesToggle === false),'ion-ios-arrow-up':(categoriesToggle === true)}"></i>
+                </div>
+
+                <div ng-show=" categoriesToggle && (!categoryNotChangable) " style="max-height: 300px;overflow-y: auto; border-left: 1px solid #ddd; border-bottom: 1px solid #ddd;">
+                    <label class="radio_material font_16 item item-icon-right bg white"  ng-repeat="category in categories" ng-click="categorySelect(category)">
+                        <input type="radio" name="categories">
+                        <span class="outer">
+                            <span class="inner"></span>
+                        </span>
+                        {{category.label}} 
+                    </label>
+                </div>
+            </div>
+            
+            <!--A D R E S S-->
+            <div class="item bg lgray pad_v item-icon-left item-icon-right">
+                <i class="icon font_30 ion-location color gray"></i>
+                <span class="font_16 color black pad pad_v alpha_v">{{labelz.address_label}}</span>
+                <!--<i class="icon ion-help color font_28 color blue pad" ng-click="showPopup()"  style="margin-right: -10px;"></i>-->
+            </div>
+            <div class="item item-button-right" style="margin-bottom: 20px">
+                <input type="text" placeholder="{{labelz.address_label}}" ng-model="form.streetName" style="display: block; width:100%">
+                <!--Location-->
+                <button class="button bg  lblue" style="position:absolute;" ng-click="reportLocation()">
+                    <i class="ion-location color white"></i>
+                </button>
+            </div>
+            
+            <!--I M A G E S-->
+            <div class="item bg lgray pad_v item-icon-left">
+                <i class="icon font_30 ion-images color gray"></i>
+                <span class="font_16 color black pad pad_v alpha_v">{{labelz.upload}}</span>
+            </div>
+            <div  class="item item-button-right" style="min-height: 65px;margin-bottom: 20px">
+                <!--flow-files-added="processFiles($files)"-->
+                <div class="marg_v omega_v" ng-if="form.imgs.length">
+                    <div class="clearfix">
+                        <div class="fl_left grid_33 grid_33-xlg pad_half marg_v alpha_v" ng-repeat="img in form.imgs">
+                            <div class="pos_relative">
+<!--                                <div class="layer_desc pad pad_v_half line_12 font_10 txt_ellipse">{{file.name}}</div>-->
+                                <div class="media_ratio_16_16">
+                                    <img src="{{img}}">
+                                </div>
+
+                                <div role="button"
+                                     class="pos_absolute color red font_20"
+                                     style="top:0;right:0;margin-top: -7px;margin-right: -7px;"
+                                     ng-click="removeThisImg($index)">
+                                    <i class="ion-trash-a"></i>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <span class="button bg lblue" style="position: absolute;" ng-click="getImage()">
+                    <i class="ion-images"></i>
+                </span>
+            </div>
+            
+            <!--D E S C R I P T I O N-->
+            <div class="item bg lgray pad_v item-icon-left item-icon-right">
+                <i class="icon font_30 ion-edit color gray"></i>
+                <span class="font_16 color black pad pad_v alpha_v">{{labelz.description_label}}</span>
+                <!--<i class="icon ion-help color font_28 color blue pad" ng-click="showPopup()" style="margin-right: -10px;"></i>-->
+            </div>
+            <label class="item item-input" style="margin-bottom: 20px">
+                <textarea type="text" rows="5" placeholder="{{labelz.description_label}}" ng-model="form.description" style="display: block; width:100%">
+                </textarea>
+            </label>
+           
+            <!--M O R E    I N F O-->
+            <div class="marg_v_double alpha_v">
+                <div class="item bg lgray pad_v item-icon-left item-icon-right">
+                    <i class="icon font_30 ion-person color gray"></i>
+                    <span class="font_16 color black pad pad_v alpha_v">{{labelz.report_anonymous_label}}</span>
+
+                    <span class="toggle_material" ng-click="form.anonymous = !form.anonymous">
+                        <input type="checkbox" ng-model="form.anonymous" class="switch" />
+                        <label></label>
+                    </span>
+                </div>
+                <div class="list alpha_v" ng-show="!form.anonymous">
+                    <label class="item item-input item-md-label alpha omega">
+                        <input class="{{ionic.Platform.isIOS() ? 'used' : ''}}" type="text" name="email" ng-class="{'used': form.email && !ionic.Platform.isIOS()}" ng-change="$" ng-model="form.email"><span class="input-label">{{labelz.report_email_label}}</span>
+                        <div class="highlight highlight-positive"></div>
+                    </label>
+                    <label class="item item-input item-md-label alpha omega">
+                        <input type="text" name="tel" ng-class="{'used': form.phone}" ng-change="$" ng-model="form.phone"><span class="input-label">{{labelz.report_phone_label}}</span>
+                        <div class="highlight highlight-positive"></div>
+                    </label>
+                </div>
+            </div>
+
+            <div class="hero no-header flat" style="width:250px;margin-left:auto;margin-right:auto;" ng-click="postReport()">
+                <div class="marg_v_double omega_v">
+                    <i class="ion-paper-airplane icon hero-icon bg lblue"></i>
+                    <h2 class="color brown">{{labelz.send_report}}</h2>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</ion-view>

@@ -1,0 +1,55 @@
+<ion-view class="ionic" on-swipe-right="onSwipeRight()"   on-swipe-left="onSwipeLeft()">
+    <div style="background:{{routeColor}};height:5px;"></div>
+    <div class="bar bar-header bar-vodafone">
+        <button class="button button-icon icon flat pull-left">
+            <i class="bg-size-38-38 icon-bicycle" style="color: {{routeColor}};"></i>
+        </button>
+        <h1 class="title fab-left right_80">{{labelz.traffic_label}}</h1>
+       
+        <button class="button button-icon icon flat pull-right-second" menu-toggle="left" ng-click="toggleMenu('open')">
+            <div class="menu menu_material {{classs}}">
+                <span></span>
+            </div>
+        </button>
+         <button class="button button-icon icon ion-home flat " ui-sref="main.dashboard"></button>
+    </div>
+
+    <div ng-if="showFullSpinner" class="has-header spinner_container">
+        <ion-spinner icon="lines" class="spinner-dark"></ion-spinner>
+    </div>
+
+    <ion-content class="has-header" has-bouncing="true"  style="bottom:56px;">
+
+        <div class="list list_large grid_material" ng-class="{'show':gridShow}">
+            <a class="item item-icon-left item-icon-right" href="#/main/rltraffic/2/red" style="transition-delay: 100ms;-webkit-transition-delay: 100ms">
+                <i class="icon ion-android-car color red"></i>
+                {{labelz.rlt_label}}
+                <i class="icon ion-chevron-right font_24"></i>
+            </a>
+
+<!--            <a class="item item-icon-left item-icon-right" href="#/main/drivingmode/2/red" style="transition-delay: 200ms;-webkit-transition-delay: 200ms">
+                <i class="icon ion-compass color red"></i>
+                {{labelz.drivingmode_label}}
+                <i class="icon ion-chevron-right font_24"></i>
+            </a>-->
+
+            <a class="item item-icon-left item-icon-right" href="#/main/cctv/2/red" style="transition-delay: 200ms;-webkit-transition-delay: 200ms">
+                <i class="icon icon-camera-surveillance-1 color red"></i>
+                {{labelz.cctv_label}}
+                <i class="icon ion-chevron-right font_24"></i>
+            </a>
+            <!--<div class="marg_v_double omega_v"></div>-->
+                <a class="item item-icon-left item-icon-right" href="#/main/notifications/2/red" style="transition-delay: 300ms;-webkit-transition-delay: 300ms">
+                 
+                    <span class="badge badge_notify pos_absolute" ng-show='notificationsList.userNotifications'>
+                        {{notificationsList.userNotifications}}
+                    </span>
+                    <i class="icon ion-android-notifications color red"></i>
+                    {{labelz.notification_label}} 
+                    <i class="icon ion-chevron-right font_24"></i>
+                </a>
+        </div>
+
+    </ion-content>
+    <switch-template  templateurl="templates/switchtemplate/vodafone_footer.html"></switch-template>
+</ion-view>

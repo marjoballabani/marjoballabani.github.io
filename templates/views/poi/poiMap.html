@@ -1,0 +1,59 @@
+<div class="ionic" cache-view="false">
+    <div class="bg_animation" style="background:{{routeColor}};height:5px;"></div>
+    <div class="bar bar-header bar-vodafone">
+
+        <button class="button button-icon icon flat pull-left">
+            <i class="view_icon font_36 ion-map" style="color: {{routeColor}};"></i>
+        </button>
+        <h1 class="title fab-left right_double inside_right_single">
+            {{labelz.label_turism}}
+
+            <button class="button button-icon icon ion-android-search flat pull-right"  ng-class="{ 'color red' : searchShow }" ng-click="toggleSearch();"></button>
+        </h1>
+        <button class="button button-icon icon flat pull-right-second" menu-toggle="left" ng-click="toggleMenu('open')">
+            <div class="menu menu_material {{classs}}">
+                <span></span>
+            </div>
+        </button>
+         <button class="button button-icon icon ion-home flat " ui-sref="main.dashboard"></button>
+    </div>
+
+
+    <!-- Poi Search -->
+    <switch-template class="has-header search_container" ng-if="searchShow" templateurl="templates/switchtemplate/poisearch.html"></switch-template>
+
+    <div ng-if="showFullSpinner" class="has-header spinner_container">
+        <ion-spinner icon="lines" class="spinner-dark"></ion-spinner>
+    </div>
+
+    <div class="content map_container">
+
+        <div class="custom_menu_right" style="overflow-y: auto;overflow-x:hidden;" ng-class="{'open': poiCategoryMenu}" >
+                <h1 class="color blue txt_center marg_v">{{labelz.legend}}</h1>
+                <div class="color blue">
+                    <div class="row pos_relative" ng-repeat="category in mapData.kategorite">
+                        <div class="col col-20">
+                            <img ng-src="{{category.icon}}"/>
+                        </div>
+                        <div class="col col-60 font_13" style="line-height: 40px;">{{category.name}}</div>
+                        <div class="col col-20">
+                            <span class="toggle_material" ng-click="catt[$index].isShown = !catt[$index].isShown;" style="margin-top: 10px; margin-right: -4px;">
+                                <input type="checkbox" ng-model="catt[$index].isShown" class="switch" />
+                                <label></label>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+        </div>
+
+        <!--MAP-->
+        <div data-tap-disabled="true" style="height:100%;width:100%; ">
+            <div id="poimap" leaflet-map style="height:100%;width:100%; "> </div>
+        </div>
+        
+        <button class="button button-fab button-fab-sml bg lblue font_26 ion-android-locate button-fab-bottom-left" ng-click="setView();"></button>
+
+        <button class="button button-fab button_rlt_locate button-fab-bottom-right icon ion-android-more-vertical waves-effect waves-light"
+                     ng-class="{'color red': poiCategoryMenu}" ng-click=" poiCategoryMenu = !poiCategoryMenu;"> </button>
+    </div>
+</div>

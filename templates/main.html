@@ -1,0 +1,35 @@
+<ion-side-menus enable-menu-with-back-views="false">
+
+    
+    <!---->
+    <ion-side-menu-content edge-drag-threshold="true" drag-content="true">
+        <ion-nav-view name="routeNivelTwo"></ion-nav-view>
+    </ion-side-menu-content> 
+    
+    <ion-side-menu menu-over expose-aside-when="large" side="left" width="295">
+        <ion-content class="ionic" has-bouncing="false">
+
+            <div class="hero menuhero" ui-sref="main.dashboard" menu-close></div>
+            <ul class="scroll list">
+                <!--ion-model-s-->
+                <li ng-repeat="item in menuItems" style="transition-delay: {{70 * $index}}ms;-webkit-transition-delay: {{70 * $index}}ms" ripple-effect class="ripple_gray {{item.colorClass}}" ng-class="{'menu_active':activeLeftMenuItem == item.activeNr}">
+                    <a href="{{item.stateUrl}}/{{item.activeNr}}/{{item.colorClass}}" class="item item-icon-left"  menu-close>
+                        <i class="icon color gray {{item.iconClass}} font_26"></i>
+                        {{labelz[item.title]}}
+                    </a>
+                </li>
+
+                <li style="height:1px;background:#ccc;margin: 16px 0;transition-delay: 420ms;-webkit-transition-delay: 420ms" ripple-effect>
+
+                </li>
+                <li style="transition-delay: 490ms;-webkit-transition-delay: 490ms" ripple-effect class="ripple_gray red"  ng-class="{'menu_active':activeLeftMenuItem == 25}">
+                    <a href="#/main/terms/25/red" class="item" menu-close>
+                        {{labelz.terms_label}}
+                    </a>
+                </li>
+
+            </ul>
+        </ion-content>
+    </ion-side-menu>
+
+</ion-side-menus>

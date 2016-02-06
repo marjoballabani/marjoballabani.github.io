@@ -1,0 +1,16 @@
+<ion-popover-view class="popover_material popover_inside_modal popover_material_bottom right_2space">
+    <ion-content>
+        <div class="list_vertical_material"  ng-class="{'show': showPopupMaterial}">
+            <a class="item item-icon-left pad_v"
+               style='transition-delay: 100ms; -webkit-transition-delay: 100ms;' ng-click="selectAll(true)">
+                <i class="icon ion-android-checkbox-outline color lblue"></i>
+               {{labelz.selectall}}
+            </a>
+            <a class="item item-icon-left pad_v"
+               style='transition-delay: 200ms; -webkit-transition-delay: 200ms;' ng-click="selectAll(false)">
+                <i class="icon ion-android-checkbox-outline-blank color gray"></i>
+               {{labelz.unselectall}}
+            </a>
+       </div>
+    </ion-content>
+</ion-popover-view>

@@ -1,0 +1,30 @@
+<ion-view class="ionic"  cache-view="false" on-swipe-right="onSwipeRight()"  on-swipe-left="onSwipeLeft()">
+    <div style="background:{{routeColor}};height:5px;"></div>
+    <div class="bar bar-header bar-vodafone">
+        <button class="button button-icon icon flat pull-left">
+           <i class="view_icon font_36 ion-android-bicycle" style="color: {{routeColor}};"></i>
+        </button>
+        <h1 class="title fab-left inside_right_single right_80">
+            {{labelz.bicycle_lanes}}
+        </h1>
+       <button class="button button-icon icon flat pull-right-second" menu-toggle="left" ng-click="toggleMenu('open')">
+            <div class="menu menu_material {{classs}}">
+                <span></span>
+            </div>
+        </button>
+         <button class="button button-icon icon ion-home flat " ui-sref="main.dashboard"></button>
+    </div>
+  
+    <div ng-if="showFullSpinner" class="has-header spinner_container">
+        <ion-spinner icon="lines" class="spinner-dark"></ion-spinner>
+    </div>
+
+     <div class="content map_container" data-tap-disabled="true">
+         
+        <div id="mapBicycle" leaflet-map  leaflet-map map-default-zoom="14" style="height:100%;width:100%;"> </div>
+        
+        <button class="button button-fab button-fab-sml bg lblue font_26 ion-android-locate button-fab-bottom-left" ng-click="setView();"></button>
+        
+     </div>
+       
+</ion-view>

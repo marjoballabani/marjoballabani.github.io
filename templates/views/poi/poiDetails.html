@@ -1,0 +1,109 @@
+<ion-view class="ionic" cache-view="false" animation="slide-left-right" cache-view="false">
+    <div style="background:{{routeColor}};height:5px;"></div>
+    <div class="bar bar-header bar-vodafone">
+        <button class="button button-icon icon flat pull-left">
+            <i class="view_icon font_36 ion-map" style="color: {{routeColor}};"></i>
+        </button>
+        <h1 class="title right_double inside_right_single">
+            {{labelz.label_turism}}
+            <button class="button button-icon icon ion-android-search flat pull-right" ng-class="{ 'color red' : searchShow }" ng-click="toggleSearch()"></button>
+        </h1>
+        
+         <button class="button button-icon icon flat pull-right-second" menu-toggle="left" ng-click="toggleMenu('open')">
+            <div class="menu menu_material {{classs}}">
+                <span></span>
+            </div>
+        </button>
+         <button class="button button-icon icon ion-home flat " ui-sref="main.dashboard"></button>
+    </div>
+    
+    <!-- Poi Search -->
+    <switch-template class="has-header search_container"  ng-if="searchShow" templateurl="templates/switchtemplate/poisearch.html"></switch-template>
+    
+    <div ng-if="showFullSpinner" class="has-header spinner_container">
+            <ion-spinner icon="lines" class="spinner-dark"></ion-spinner>
+    </div>
+    
+    <ion-content class="has-header bg white" delegate-handle="content"  ng-attr-has-bouncing="{{ionic.Platform.isIOS()? 'true' : 'false'}}" ng-attr-overflow-scroll="{{ionic.Platform.isIOS()? 'false' : 'true'}}">
+
+        <div class="hero media_ratio_16_8 has-mask" style="background-image: url({{poi.poi_simg_src}});">
+            <div class="content">
+                <!--<button class="button button-large button-clear flat waves-effect waves-button waves-light icon ion-android-contacts pull-right color white" ng-click="scrollTo('address')"></button>-->
+                <!--<button class="button button-large button-clear flat waves-effect waves-button waves-light icon ion-map pull-right  color white"  ng-click="scrollTo('map')"></button>-->
+                <!--<button class="button button-large button-clear flat waves-effect waves-button waves-light icon ion-images pull-right color white"  ng-if="poi.poi_image_gallery" ng-click="scrollTo('gallery')"></button>-->
+            </div>
+        </div>
+        <div class="mid-bar dark-bg z1 padding" >
+            <h3>{{poi.poi_title}} &nbsp;</h3>
+        </div>
+        <div class="clearfix bg white">
+
+            <div class="font_16 pad_v_double pad_double bg white">
+                <div>{{poi.poi_desc}} </div>
+                <!--<div ng-bind-html="poi.poi_desc"></div>-->
+                <div class="pad_v" ng-bind-html="poi.poi_content"></div>
+            </div>
+            
+            <div class="pad_half grid_50-xlg fl_left-xlg">
+                <div class="bg lgray pad_v pad_double" id="address">
+                    <i class="icon font_30 ion-android-contacts color black"></i>
+                    <span class="font_16 color black pad pad_v alpha_v">{{labelz.adress}} &nbsp;</span>
+                </div>
+                <div class="list alpha_v">
+
+                    <a class="item font_16" >
+                       {{poi.poi_address}} &nbsp;
+                    </a>
+
+                    <a href="tel:{{poi.poi_tel}}"  ng-if="poi.poi_tel.trim() !== ''" ng-click="openUrl('tel:{{poi.poi_tel}}')" class="item item-icon-left font_16" >
+                        <i class="icon ion-ios-telephone"></i>
+                        {{poi.poi_tel}} &nbsp;
+                    </a>
+
+                    <a href="tel:{{poi.poi_fax}}" ng-if="poi.poi_fax.trim() !== ''"  ng-click="openUrl('tel:{{poi.poi_fax}}')" class="item item-icon-left font_16" >
+                       <i class="icon ion-ios-telephone"></i>
+                        {{poi.poi_fax}} &nbsp;
+                    </a>
+
+                    <a href="mailto:{{poi.poi_email}}" ng-if="poi.poi_email.trim() !== '' " ng-click="openUrl('mailto:{{poi.poi_fax}}')" class="item item-icon-left font_16">
+                        <i class="icon ion-ios-at "></i>
+                        {{poi.poi_email}} &nbsp;
+                    </a>
+                    <a  ng-click="openUrl({{poi.poi_web}})" ng-if="poi.poi_web.trim() !== '' " class="item item-icon-left font_16">
+                        <!--href="www.tirana.gov.al"-->
+                        <i class="icon ion-link"></i>
+                        {{poi.poi_web}} &nbsp;
+                    </a>
+                </div>
+            </div>
+            <div class="pos_relative pad_half grid_50-xlg fl_left-xlg">
+                <div class="bg lgray pad_v pad_double" id="map">
+                    <i class="icon font_30 ion-map color black"></i>
+                    <span class="font_16 color black pad pad_v alpha_v">{{labelz.map}}</span>
+                </div>
+                <div ng-if="showFullMapSpinner" class="has-header spinner_container">
+                    <ion-spinner icon="lines" class="spinner-dark"></ion-spinner>
+                </div>
+                <div data-tap-disabled="true">
+                    <div id="mappoi" class="media_ratio_16_9"></div> 
+                </div>
+
+            </div>
+
+            <div class="clearfix pad_v-lg" ng-if="poi.poi_image_gallery">    
+                <div class="bg lgray pad_v pad_double marg_half" id="gallery">
+                    <i class="icon font_30 ion-images color black"></i>
+                    <span class="font_16 color black pad pad_v alpha_v">{{labelz.gallery}}</span>
+                </div>
+
+                <div class="clearfix pad pad_v">
+                    <div class="da_block media grid_33 grid_20-xlg" ng-repeat="item in poi.poi_image_gallery">
+                        <div class="media_ratio_16_12">
+                            <img ng-src="{{item.image_simg_src}}" class=""  ng-click="showImages(0)" />
+                        </div>
+                    </div>
+                </div> 
+            </div> 
+        </div>
+    </ion-content>
+</ion-view>

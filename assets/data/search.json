@@ -1,0 +1,32 @@
+[
+        {
+        "poi_id": "167",
+                "poi_title": "City Hall Tirana",
+                "poi_desc": "Nje pershkrim i shkurter mbi",
+                "poi_bimg_src": "srcBigImageToDisplay",
+                "poi_simg_src": "http://192.168.1.114/tirana_mobility_2014/show_image.php?file_id=8",
+                "poi_latitude": "41.328793",
+                "poi_longitude": "19.818156",
+                "poi_content": " <ul> <li>fgfdgdfgdfg</li> <li>dgfgd</li> <li>dgdfgd</li> </ul> <p>&nbsp;</p> <p> <span style=\"FONT - FAMILY: Bookman Old Style; FONT - WEIGHT: bold\">gfhhfghfh</span></p> <p>&nbsp;KOt ecte në erresire</p>"
+                },
+        {
+        "poi_id": "168",
+                "poi_title": "Tirana International Hotel",
+                "poi_desc": "",
+                "poi_bimg_src": "srcBigImageToDisplay",
+                "poi_simg_src": "http://192.168.1.114/tirana_mobility_2014/show_image.php?file_id=26",
+                "poi_latitude": "41.327761",
+                "poi_longitude": "19.820092",
+                "poi_content": "Please insert content... "
+                },
+        {
+        "poi_id": "169",
+                "poi_title": "Posta Shqiptare sh.a Ã«",
+                "poi_desc": "",
+                "poi_bimg_src": "srcBigImageToDisplay",
+                "poi_simg_src": "http://192.168.1.114/tirana_mobility_2014/show_image.php?file_id=17",
+                "poi_latitude": "41.327097",
+                "poi_longitude": "19.815801",
+                "poi_content": "Please insert content... "
+                }
+]

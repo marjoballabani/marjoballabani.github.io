@@ -1,0 +1,92 @@
+<ion-view class="ionic" on-swipe-right="onSwipeRight()"  on-swipe-left="onSwipeLeft()">
+    <div style="background:{{routeColor}};height:5px;"></div>
+    <div class="bar bar-header bar-vodafone">
+         <button class="button button-icon icon flat pull-left">
+           <i class="view_icon font_36 icon-info" style="color: {{routeColor}};"></i>
+        </button>
+        <h1 class="title fab-left right_80">{{labelz.info_label}}</h1>
+        <button class="button button-icon icon flat pull-right-second" menu-toggle="left" ng-click="toggleMenu('open')">
+            <div class="menu menu_material {{classs}}">
+                <span></span>
+            </div>
+        </button>
+         <button class="button button-icon icon ion-home flat " ui-sref="main.dashboard"></button>
+    </div>
+    
+    <div ng-if="showFullSpinner" class="has-header spinner_container">
+        <ion-spinner icon="lines" class="spinner-dark"></ion-spinner>
+    </div>
+    <ion-content style="bottom:56px;" class="has-header"  has-bouncing="true">
+        
+        <div class="list list_large grid_material" ng-class="{'show':gridShow}">
+            <div class="item pad_v_half" style="transition-delay: 100ms;-webkit-transition-delay: 100ms">
+                {{"Kontakt Bashkia Tirane"}}
+            </div>
+            <ul  style="transition-delay: 100ms;-webkit-transition-delay: 100ms">
+                <li>
+                     <a class="item item-icon-left pad_v" href="tel:{{info.tel}}">
+                        <i class="icon color red ion-android-call font_26"></i>
+                        Nr. jeshil
+                        <u class="item-note">{{info.tel}}</u>
+                    </a>
+                </li>
+                <li>
+                    <a  class="item item-icon-left pad_v" ng-click="openUrl( info.website );" href="#">
+                        <i class="icon  color red ion-android-globe font_26"></i>
+                        Website
+                        <u class="item-note">{{info.website}}</u>
+                    </a>
+                </li>
+            </ul>
+            
+            <div class="marg_v"></div>
+            
+<!--        <a class="item item-icon-left item-icon-right"  href="#main/infodetails/11/red/getNjesite/{{labelz.label_info_adm}}" style="transition-delay: 200ms;-webkit-transition-delay: 200ms">
+                <i class="icon ion-android-map color red" style="font-size: 50px;"></i>
+                {{labelz.label_info_adm}}
+                <i class="icon ion-chevron-right font_24"></i>
+            </a>-->
+            
+            <a class="item item-icon-left item-icon-right"  href="#main/administrationmap/11/red" style="transition-delay: 200ms;-webkit-transition-delay: 200ms">
+                <i class="icon ion-android-map color red" style="font-size: 50px;"></i>
+                {{labelz.label_info_adm}}
+                <i class="icon ion-chevron-right font_24"></i>
+            </a>
+
+            
+            <div class="marg_v"></div>
+            
+            <a class="item item-icon-left item-icon-right"  href="#main/infodetails/11/red/getNdermarrjet/{{labelz.label_info_enterprise}}" style="transition-delay: 300ms;-webkit-transition-delay: 300ms">
+                <i class="icon ion-briefcase color red" style="font-size: 50px;"></i>
+                {{labelz.label_info_enterprise}}
+                <i class="icon ion-chevron-right font_24"></i>
+            </a>
+            <div class="marg_v"></div>
+            <a class="item item-icon-left" style="transition-delay: 400ms;-webkit-transition-delay: 400ms">
+                <i class="icon ion-university color red"></i>
+                {{labelz.label_info_education}}
+            </a>
+                <div>
+                    <a class="item item-icon-left item-icon-right"  href="#main/infodetails/11/red/getKopshtet/{{labelz.label_info_kindergarten}}" style="transition-delay: 500ms;-webkit-transition-delay: 500ms">
+                        <i class="icon  color red"></i>
+                        {{labelz.label_info_kindergarten}}
+                        <i class="icon ion-chevron-right font_24"></i>
+                    </a>
+
+                    <a class="item item-icon-left item-icon-right" href="#main/infodetails/11/red/getShkollat/{{labelz.label_info_school9_city}}" style="transition-delay: 600ms;-webkit-transition-delay: 600ms">
+                        <i class="icon  color red"></i>
+                        {{labelz.label_info_school9_city}}
+                        <i class="icon ion-chevron-right font_24"></i>
+                    </a>
+
+                    <a class="item item-icon-left item-icon-right"  href="#main/infodetails/11/red/getShkollatKom/{{labelz.label_info_school9_village}}" style="transition-delay: 700ms;-webkit-transition-delay: 700ms">
+                        <i class="icon  color red"></i>
+                        {{labelz.label_info_school9_village}}
+                        <i class="icon ion-chevron-right font_24"></i>
+                    </a>
+                </div>
+        </div>
+    </ion-content>
+  <switch-template  templateurl="templates/switchtemplate/vodafone_footer.html"></switch-template>
+    
+</ion-view>

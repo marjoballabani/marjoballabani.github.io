@@ -1,0 +1,26 @@
+<ion-view class="ionic">
+    <div style="background:{{routeColor}};height:5px;"></div>
+    <div class="bar bar-header bar-vodafone">
+        <button class="button button-icon icon flat pull-left">
+            <img width="40" height="40" src="assets/graphics/header_icon.png"/>
+        </button>
+        <h1 class="title fab-left right_80">{{labelz.terms_label}}</h1>
+        <button class="button button-icon icon flat pull-right-second" menu-toggle="left" ng-click="toggleMenu('open')">
+            <div class="menu menu_material {{classs}}">
+                <span></span>
+            </div>
+        </button>
+         <button class="button button-icon icon ion-home flat " ui-sref="main.dashboard"></button>
+    </div>
+    
+    <div ng-if="showFullSpinner" class="has-header spinner_container">
+        <ion-spinner icon="lines" class="spinner-dark"></ion-spinner>
+    </div>
+    <ion-content class="has-header"  ng-attr-has-bouncing="{{ionic.Platform.isIOS()? 'true' : 'false'}}" ng-attr-overflow-scroll="{{ionic.Platform.isIOS()? 'false' : 'true'}}">
+        <div class="pad pad_v">
+       <switch-template class="has-header" ng-if=" language !== '2' " templateurl="templates/switchtemplate/terms_al.html"></switch-template>
+       <switch-template class="has-header" ng-if=" language === '2' " templateurl="templates/switchtemplate/terms_en.html"></switch-template>
+        </div>
+    </ion-content>
+    
+</ion-view>

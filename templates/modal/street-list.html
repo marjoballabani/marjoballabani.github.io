@@ -1,0 +1,33 @@
+<div class="modal all_streets_modal">
+    <div class="bar bar-header" style="border-top: 4px solid {{routeColor}};height:48px;">
+        <button class="button button-clear color black font_16" ng-click="closeStreetModal()">{{labelz.cancel_label}}</button>
+        <h1 class="title">{{labelz.notifications_select_streets}}</h1>
+        <button class="button button-clear color black font_16" ng-click="saveCloseStreetmodal()">{{labelz.save_label}}</button>
+    </div>
+    <div class="ionic">
+        <ion-content style="top:48px;" ng-attr-has-bouncing="{{ionic.Platform.isIOS() ? 'true' : 'false'}}" ng-attr-overflow-scroll="{{ionic.Platform.isIOS() ? 'false' : 'true'}}">
+
+            <div segments-per-street segments="street.segments" segmentsnumber="segmentsnumber"  ng-repeat="street in userSettings.streets">
+
+                <div class="item item-icon-right" ng-click="street.visible = !street.visible">
+                    <span class="pos_relative">
+                        {{street.streetName}}
+                    </span>
+                     <span class="badge bg orange" ng-if="segmentsnumber !== 0" style="position: absolute;top: 5px;right: 5px;">{{segmentsnumber}}</span>
+                    <i class="icon font_22 ion-ios-arrow-down"></i>
+                </div>
+
+                <div class="item item-checkbox-left" ng-show="street.visible" ng-repeat="segment in street.segments">
+                    {{segment.segment_name}}
+                    <label class="checkbox checkbox_material">
+                        <input type="checkbox" ng-model="segment.isSelected"/>
+                    </label>
+                </div>
+
+            </div>
+        </ion-content>
+
+        <button class="button button-fab button_rlt_locate button-fab-bottom-right icon ion-android-more-vertical waves-effect waves-light"
+                ng-click="openPopoverStreets($event)"> </button>
+    </div>
+</div>

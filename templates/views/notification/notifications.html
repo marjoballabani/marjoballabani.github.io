@@ -1,0 +1,135 @@
+<ion-view class="ionic notification_list_view"  cache-view="false">
+    <div style="background:{{routeColor}};height:5px;"></div>
+    <div class="bar bar-header bar-vodafone">
+        <button class="button button-icon icon flat pull-left">
+            <i class="view_icon font_36 ion-android-notifications" style="color: {{routeColor}};"></i>
+        </button>
+        <h1 class="title fab-left right_80">{{labelz.notification_label}}</h1>
+        <button class="button button-icon icon flat pull-right-second" menu-toggle="left" ng-click="toggleMenu('open')">
+            <div class="menu menu_material {{classs}}">
+                <span></span>
+            </div>
+        </button>
+         <button class="button button-icon icon ion-home flat " ui-sref="main.dashboard"></button>
+    </div>
+
+    <div ng-if="showFullSpinner" class="has-header spinner_container">
+        <ion-spinner icon="lines" class="spinner-dark"></ion-spinner>
+    </div>
+    <div class="tabs-striped tabs-top tabs-color-assertive">
+        <div class="tabs">
+            <a class="tab-item" ng-class="{'active':mynotific}" ng-click="mynotific = true">
+                <!--<i class="icon ion-home"></i>-->
+                {{labelz.favorite_notifications}}
+            </a>
+            <a class="tab-item" ng-class="{'active': !mynotific}"  ng-click="mynotific = false">
+                <!--<i class="icon ion-star"></i>-->
+                 {{labelz.not_favorite_notifications}}
+            </a>
+        </div>
+    </div>
+    
+    <ion-content class="has-header"  ng-attr-has-bouncing="{{ionic.Platform.isIOS()? 'true' : 'false'}}" ng-attr-overflow-scroll="{{ionic.Platform.isIOS()? 'false' : 'true'}}">
+        <div class="pad_half pad_v_half" ng-if='notificationShow'>
+            <div class="bg orange item item-icon-right">
+                <h1 class="title font_14 color white" style="height: auto;white-space: normal; padding-right: 52px;"><div>{{labelz.notific_config_info1}}</div><div class="pad_v_half font_16 omega_v bold">{{labelz.notific_config_info2}}</div></h1>
+                <span class="icon data-text-before" style="right: 66px;"  ui-sref="main.settings({ activeNr:20, color: 'red'})" data-text="{{labelz.notific_config_info2}}">
+                    <i class="ion-android-settings" data-text=""></i>
+                </span>
+                <span class="icon data-text-before" ng-click='notificationsConfigChange(0)' data-text="{{labelz.notific_config_dontshow}}">
+                     <i class="ion-close-circled"></i>
+                </span>
+            </div>
+        </div>
+        <span ng-if="mynotific === true">
+            <!-- Traffic i ngarkuar -->
+            <div class="bg lgray pad_v marg_half"  ng-if="showIsHeavyFavorite">
+                <span class="font_17 color black pad pad_v alpha_v">{{labelz.traffic_occupancy}}</span>
+            </div>
+            <a class="item item-icon-left item-icon-right item_notification" 
+               href="#/main/notifications/{{notific.id}}/{{stateParams.activeNr}}/{{stateParams.color}}" style="border-bottom: 1px solid #fcc802;"
+               ng-repeat="notific in notificationsList.heavy" ng-if="notific.isFavorite === true">
+                <i class="icon ion-arrow-swap font_32 color gray"></i>
+                <h2 class="font_17 bold">{{notific.title}}</h2>
+                <p class="font_16"><span class="color red">{{notific.occupancy}}%</span> - {{labelz.heavy_traffic}}</p>
+                <i class="icon ion-ios-arrow-right"></i>
+            </a>
+
+            <!-- Rruga Bllokuar -->
+            <div class="bg lgray pad_v marg_half" ng-if="showIsBlockedFavorite">
+                <span class="font_17 color black pad pad_v alpha_v">{{labelz.blocked}}</span>
+            </div>
+            
+            <a class="item item-icon-left item-icon-right item_notification" 
+               href="#/main/notifications/{{notific.id}}/{{stateParams.activeNr}}/{{stateParams.color}}" style="border-bottom: 1px solid #fcc802;"
+               ng-repeat="notific in notificationsList.blocked" ng-if="notific.isFavorite === true">
+                <i class="icon ion-arrow-swap font_32 color gray"></i>
+                <h2 class="font_17 bold">{{notific.title}}</h2>
+                <span class="color orange">{{labelz.blocked}}</span>
+                <p class="font_16"><span class="color red">{{notific.count}}</span> - {{labelz.vehicles}}</p>
+                <i class="icon ion-ios-arrow-right"></i>
+            </a>
+
+            <!-- Njoftime te planifikuara -->
+            <div class="bg lgray pad_v pad marg_half" ng-if="showIsPlannedFavorite">
+                <span class="font_17 color black pad_v alpha_v">{{labelz.planned_events}}</span>
+            </div>
+            <a class="item item-icon-left item-icon-right item_notification"
+               href="#/main/notifications/{{notific.id}}/{{stateParams.activeNr}}/{{stateParams.color}}" 
+               style="border-bottom: 1px solid #e61f1f;" ng-repeat="notific in notificationsList.planned"  ng-if="notific.isFavorite == true">
+
+                <i class="icon ion-arrow-return-right font_32 color gray"></i>
+                <h2 class="font_17 bold"> {{labelz.blocked}} {{notific.title}}</h2>
+                <p class="font_16"><span class="color red">{{notific.dateFrom}} | {{notific.timeFrom}}</span></p>
+                <p class="font_16">{{notific.description}}</p>
+                <i class="icon ion-ios-arrow-right"></i>
+            </a>
+        </span>
+
+        <span ng-if="!mynotific">
+            <!-- Traffic i ngarkuar -->
+            <div class="bg lgray pad_v marg_half"  ng-if="showIsHeavyNotFavorite">
+                <span class="font_17 color black pad pad_v alpha_v">{{labelz.traffic_occupancy}}</span>
+            </div>
+            <a class="item item-icon-left item-icon-right item_notification" 
+               href="#/main/notifications/{{notific.id}}/{{stateParams.activeNr}}/{{stateParams.color}}" style="border-bottom: 1px solid #fcc802;"
+               ng-repeat="notific in notificationsList.heavy" ng-if="notific.isFavorite == false">
+                <i class="icon ion-arrow-swap font_32 color gray"></i>
+                <h2 class="font_17 bold">{{notific.title}}</h2>
+                <p class="font_16"><span class="color red">{{notific.occupancy}}%</span> - {{labelz.heavy_traffic}}</p>
+                <i class="icon ion-ios-arrow-right"></i>
+            </a>
+
+            <!-- Rruga Bllokuar -->
+            <div class="bg lgray pad_v marg_half" ng-if="showIsBlockedNotFavorite">
+                <span class="font_17 color black pad pad_v alpha_v">{{labelz.blocked}}</span>
+            </div>
+            <a class="item item-icon-left item-icon-right item_notification" 
+               href="#/main/notifications/{{notific.id}}/{{stateParams.activeNr}}/{{stateParams.color}}" style="border-bottom: 1px solid #fcc802;"
+               ng-repeat="notific in notificationsList.blocked" ng-if="notific.isFavorite == false">
+                <i class="icon ion-arrow-swap font_32 color gray"></i>
+                <h2 class="font_17 bold">{{notific.title}}</h2>
+                <span class="color orange">{{labelz.blocked}}</span>
+                <p class="font_16"><span class="color red">{{notific.count}}</span> - {{labelz.vehicles}}</p>
+                <i class="icon ion-ios-arrow-right"></i>
+            </a>
+
+            <!-- Njoftime te planifikuara -->
+            <div class="bg lgray pad_v pad marg_half" ng-if="showIsPlannedNotFavorite">
+                <span class="font_17 color black pad_v alpha_v">{{labelz.planned_events}}</span>
+            </div>
+            
+            <a class="item item-icon-left item-icon-right item_notification"
+               href="#/main/notifications/{{notific.id}}/{{stateParams.activeNr}}/{{stateParams.color}}" 
+               style="border-bottom: 1px solid #e61f1f;" ng-repeat="notific in notificationsList.planned" ng-if="notific.isFavorite == false">
+
+                <i class="icon ion-arrow-return-right font_32 color gray"></i>
+                <h2 class="font_17 bold">{{notific.title}}</h2>
+                <p class="font_16"><span class="color red">{{notific.dateFrom}} | {{notific.timeFrom}}</span></p>
+                <p class="font_16">{{notific.description}}</p>
+                <i class="icon ion-ios-arrow-right"></i>
+            </a>
+        </span>
+
+    </ion-content>
+</ion-view>

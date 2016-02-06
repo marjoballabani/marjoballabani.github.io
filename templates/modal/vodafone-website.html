@@ -1,0 +1,20 @@
+<div class="modal modal-tablet-full">
+    <div class="bar bar-header" style="border-top: 4px solid #e60000;height:48px;">
+        <button class="button" style="display: none;"></button>
+        <h1 class="title">vodafone.al</h1>
+        <button class="button button-clear color black ion-close" ng-click="deleteModal('vodafone-website')"></button>
+    </div>
+    <span>
+        <div ng-if="showFullSpinner" class="has-header spinner_container">
+            <ion-spinner icon="dots" class="spinner-dark"></ion-spinner>
+        </div>
+        <div class="pos_absolute"  style="width:100%;height:calc(100% - 104px);top:48px;bottom:56px;">
+
+                <iframe src="http://www.vodafone.al" style="width:100%;height:100%;" frameborder="0"></iframe>
+
+        </div>
+    </span>
+    <div style="height:56px;bottom: 0px;left:0px; box-shadow: 0 -2px 5px 0 rgba(0,0,0,.26);" ng-click="deleteModal('vodafone-website');" class="pos_absolute bg red grid_100"> 
+        <img style="left: 50%;top:8px;margin-left: -20px;" class="pos_absolute" width="40" height="40" src="assets/graphics/logo_1.png">
+    </div>
+</div>

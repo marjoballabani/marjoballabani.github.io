@@ -1,0 +1,24 @@
+<ion-popover-view class="popover_material popover_material_bottom right_2space">
+    <ion-content>
+        <div class="list_vertical_material"  ng-class="{'show': showPopupMaterial}">
+
+            <a class="item item-icon-left item-icon-right pad_v"
+               ng-repeat="category in mapData.kategorite" 
+               style='transition-delay: {{$index * 100}}ms; -webkit-transition-delay: {{$index * 100}}ms;'
+               data-line-id='{{category.id}}' ng-click="groupSelected([category.id], true);
+                       popoverParking.hide()">
+                <span class="icon">
+                    <img ng-src="{{category.icon}}" style="box-shadow: none;"/>
+                </span>
+
+                <span class="line-label" style="line-height: 36px;">
+
+                    {{category["name" + language]}} 
+                </span>
+
+                <i class="icon ion-arrow-right-c"></i>
+
+            </a>
+        </div>
+    </ion-content>
+</ion-popover-view>

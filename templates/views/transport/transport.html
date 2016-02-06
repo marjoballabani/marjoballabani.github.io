@@ -1,0 +1,55 @@
+<ion-view class="ionic" on-swipe-right="onSwipeRight()"   on-swipe-left="onSwipeLeft()">
+    <div style="background:{{routeColor}};height:5px;"></div>
+    <div class="bar bar-header bar-vodafone">
+        <button class="button button-icon icon flat pull-left">
+            <i class="view_icon font_36 ion-android-bus" style="color: {{routeColor}};"></i>
+        </button>
+        <h1 class="title fab-left right_80">{{labelz.transport}}</h1>
+        <button class="button button-icon icon flat pull-right-second" menu-toggle="left" ng-click="toggleMenu('open')">
+            <div class="menu menu_material {{classs}}">
+                <span></span>
+            </div>
+        </button>
+         <button class="button button-icon icon ion-home flat " ui-sref="main.dashboard"></button>
+    </div>
+
+    <div ng-if="showFullSpinner" class="has-header spinner_container">
+        <ion-spinner icon="lines" class="spinner-dark"></ion-spinner>
+    </div>
+
+    <ion-content class="has-header" has-bouncing="true" style="bottom:56px;">
+        <div class="list list_large grid_material" ng-class="{'show':gridShow}">
+            <a class="item item-icon-left item-icon-right"  href="#main/bicycle/12/red" style="transition-delay: 100ms;-webkit-transition-delay: 100ms">
+                <i class="icon ion-android-bicycle color red" style="font-size: 50px;"></i>
+                {{labelz.bicycle_lanes}}
+                <i class="icon ion-chevron-right font_24"></i>
+            </a>
+            
+            <a class="item item-icon-left item-icon-right" href="#/main/ptransport/publicTransport/12/red" style="transition-delay: 200ms;-webkit-transition-delay: 200ms">
+                <i class="icon ion-android-bus color red"></i>
+                {{labelz.public_transport}}
+                <i class="icon ion-chevron-right font_24"></i>
+            </a>
+            
+            <a class="item item-icon-left item-icon-right" href="#/main/ptransport/publicTransportInterurban/12/red" style="transition-delay: 300ms;-webkit-transition-delay: 300ms">
+                <i class="icon ion-android-train color red"></i>
+                {{labelz.public_transport_interurban}}
+                <i class="icon ion-chevron-right font_24"></i>
+            </a>
+            
+            <a class="item item-icon-left item-icon-right" href="#/main/taxi/12/red" style="transition-delay: 400ms;-webkit-transition-delay:400ms">
+                <i class="icon icon-taxi bg-size-50-50 color red"></i>
+                {{labelz.taxi}}
+                <i class="icon ion-chevron-right font_24"></i>
+            </a>
+            
+            <a class="item item-icon-left item-icon-right" href="#/main/parking/12/red" style="transition-delay: 500ms;-webkit-transition-delay: 500ms">
+                <i class="icon icon-parking-garage color red" style="margin-left: -8px;"></i>
+                {{labelz.label_parking}}
+                <i class="icon ion-chevron-right font_24"></i>
+            </a>
+           
+        </div>
+    </ion-content>
+    <switch-template  templateurl="templates/switchtemplate/vodafone_footer.html"></switch-template>
+</ion-view>

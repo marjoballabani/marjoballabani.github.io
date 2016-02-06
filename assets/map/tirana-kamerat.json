@@ -1,0 +1,305 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "properties": {
+                "img": "http://infomobility.tirana.gov.al/images-cctv/192_168_112_10.jpg",
+                "title": "NUTC02",
+                "address": "Rr. Durresit nearby Psportit A.Rusi"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    41.334238, 19.800885
+                ]
+            }
+        }, {
+            "type": "Feature",
+            "properties": {
+                "img": "http://infomobility.tirana.gov.al/images-cctv/192_168_112_18.jpg",
+                "title": "NUTC03",
+                "address": "Hyrja Rruges Elbasanit, Sauk"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    41.316690, 19.833258
+                ]
+            }
+        }, {
+            "type": "Feature",
+            "properties": {
+                "img": "http://infomobility.tirana.gov.al/images-cctv/192_168_112_26.jpg",
+                "title": "NUTC04",
+                "address": "Instituti Higjenes"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    41.345405, 19.851057
+                ]
+            }
+        }, {
+            "type": "Feature",
+            "properties": {
+                "img": "http://infomobility.tirana.gov.al/images-cctv/192_168_112_34.jpg",
+                "title": "NUTC05",
+                "address": "Hyrja RR.Durresit Prane Doganes Tiranes"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    41.340187, 19.783831
+                ]
+            }
+        }, {
+            "type": "Feature",
+            "properties": {
+                "img": "http://infomobility.tirana.gov.al/images-cctv/192_168_112_42.jpg",
+                "title": "NUTC06",
+                "address": "Sheshi Willson"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                   41.318642, 19.814530
+                ]
+            }
+        }, {
+            "type": "Feature",
+            "properties": {
+                "img": "http://infomobility.tirana.gov.al/images-cctv/192_168_112_50.jpg",
+                "title": "NUTC07",
+                "address": "Diga Liqenit prane Gardes se Republikes"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    41.313842, 19.815695
+                ]
+            }
+        }, {
+            "type": "Feature",
+            "properties": {
+                "img": "http://infomobility.tirana.gov.al/images-cctv/192_168_112_58.jpg",
+                "title": "NUTC08.1",
+                "address": "Rr. Kavajes / Rr. Durresit / Rr. Ded Gjo Luli - 1"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                     41.328861, 19.816149
+                ]
+            }
+        }, {
+            "type": "Feature",
+            "properties": {
+                "img": "http://infomobility.tirana.gov.al/images-cctv/192_168_112_59.jpg",
+                "title": "NUTC08.2",
+                "address": "Rr. Kavajes / Rr. Durresit / Rr. Ded Gjo Luli - 2"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                   41.328229, 19.816330
+                ]
+            }
+        }, {
+            "type": "Feature",
+            "properties": {
+                "img": "http://infomobility.tirana.gov.al/images-cctv/192_168_112_74.jpg",
+                "title": "NUTC10",
+                "address": "Bul. Zhan D'Ark / Bul. B. Curri / Rr. Muhamet Gjollesha"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    41.321397, 19.805535
+                ]
+            }
+        }, {
+            "type": "Feature",
+            "properties": {
+                "img": "http://infomobility.tirana.gov.al/images-cctv/192_168_112_98.jpg",
+                "title": "NUTC13",
+                "address": "Fabrika bukës"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    41.321613, 19.789334
+                ]
+            }
+        }, {
+            "type": "Feature",
+            "properties": {
+                "img": "http://infomobility.tirana.gov.al/images-cctv/192_168_112_106.jpg",
+                "title": "NUTC14",
+                "address": "Ura teknologjike"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    41.322344, 19.791768
+                ]
+            }
+        }, {
+            "type": "Feature",
+            "properties": {
+                "img": "http://infomobility.tirana.gov.al/images-cctv/192_168_112_130.jpg",
+                "title": "NUTC17",
+                "address": "Rr. Elbasanit"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    41.325107, 19.825146
+                ]
+            }
+        }, {
+            "type": "Feature",
+            "properties": {
+                "img": "http://infomobility.tirana.gov.al/images-cctv/192_168_112_170.jpg",
+                "title": "NUTC22",
+                "address": "Presidenca"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    41.319538, 19.820795
+                ]
+            }
+        }, {
+            "type": "Feature",
+            "properties": {
+                "img": "http://infomobility.tirana.gov.al/images-cctv/192_168_112_202.jpg",
+                "title": "NUTC26",
+                "address": "I.N.S.I.G.U"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    41.330733, 19.820722
+                ]
+            }
+        }, {
+            "type": "Feature",
+            "properties": {
+                "img": "http://infomobility.tirana.gov.al/images-cctv/192_168_112_210.jpg",
+                "title": "NUTC27",
+                "address": "Partizani panjohur"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    41.328604, 19.821618
+                ]
+            }
+        }, {
+            "type": "Feature",
+            "properties": {
+                "img": "http://infomobility.tirana.gov.al/images-cctv/192_168_112_218.jpg",
+                "title": "NUTC28",
+                "address": "Rr. Dibres / Rr. Bajram Curri"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    41.345278, 19.838115
+                ]
+            }
+        }, {
+            "type": "Feature",
+            "properties": {
+                "img": "http://infomobility.tirana.gov.al/images-cctv/192_168_113_42.jpg",
+                "title": "NUTC38",
+                "address": "Sheshi Kombinat"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    41.313922, 19.767020
+                ]
+            }
+        }, {
+            "type": "Feature",
+            "properties": {
+                "img": "http://infomobility.tirana.gov.al/images-cctv/192_168_113_58.jpg",
+                "title": "NUTC40",
+                "address": "Shkolla Gjuhet e Huaja"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    41.319049, 19.828081
+                ]
+            }
+        }, {
+            "type": "Feature",
+            "properties": {
+                "img": "http://infomobility.tirana.gov.al/images-cctv/192_168_113_162.jpg",
+                "title": "NUTC53",
+                "address": "UNAZE - DON BOSKO"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    41.334285, 19.806328
+                ]
+            }
+        }, {
+            "type": "Feature",
+            "properties": {
+                "img": "http://infomobility.tirana.gov.al/images-cctv/192_168_113_178.jpg",
+                "title": "NUTC55",
+                "address": "UNAZE - ZOG 1"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    41.336004, 19.816691
+                ]
+            }
+        }, {
+            "type": "Feature",
+            "properties": {
+                "img": "http://infomobility.tirana.gov.al/images-cctv/192_168_113_210.jpg",
+                "title": "NUTC59",
+                "address": "UNAZE - DIBRES"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    41.340198, 19.828948
+                ]
+            }
+        }, {
+            "type": "Feature",
+            "properties": {
+                "img": "http://infomobility.tirana.gov.al/images-cctv/192_168_113_226.jpg",
+                "title": "NUTC61",
+                "address": "UNAZE - HOXHA TAHSIM"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    41.333623, 19.833379
+                ]
+            }
+        }, {
+            "type": "Feature",
+            "properties": {
+                "img": "http://infomobility.tirana.gov.al/images-cctv/192_168_113_234.jpg",
+                "title": "NUTC62",
+                "address": "UNAZE - BLV ZHAN D'ARK"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    41.330624, 19.834347
+                ]
+            }
+        }
+    ]
+}

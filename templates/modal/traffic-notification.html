@@ -1,0 +1,25 @@
+<ion-view class="ionic"  cache-view="false">
+     <div style="background:{{routeColor}};height:5px;"></div>
+      <div class="bar bar-header bar-vodafone">
+        <button class="button button-icon icon flat pull-left">
+            <i class="view_icon font_36 ion-android-notifications" style="color: {{routeColor}};"></i>
+        </button>
+        <h1 class="title fab-left"> {{activeNotification.title}}</h1>
+        <button class="button button-icon icon flat" menu-toggle="left" ng-click="toggleMenu('open')">
+            <div class="menu menu_material {{classs}}">
+                <span></span>
+            </div>
+        </button>
+    </div>
+    <ion-content  ng-attr-has-bouncing="{{ionic.Platform.isIOS()? 'true' : 'false'}}" ng-attr-overflow-scroll="{{ionic.Platform.isIOS()? 'false' : 'true'}}">
+        <div id="mapNotification" class="media_ratio_16_9"></div>
+        <div class="item  item-icon-left item_notification">
+            <i class="icon ion-arrow-return-right font_32 color gray"></i>
+            <p class="font_16"><span class="color red">{{activeNotification.date}} | {{activeNotification.timeFrom}} - {{activeNotification.timeTo}}</span></p>
+        </div>
+        <div class="pad pad_v">
+           {{activeNotification.description}}
+        </div>
+        
+    </ion-content>
+</ion-view>
