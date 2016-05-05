@@ -1,0 +1,55 @@
+#icon-canvas img {
+    padding: 30px;
+    transition-property: all;
+    transition-timing-function: ease-out;
+    position: absolute;
+    opacity: 1;
+    z-index: 9999999;
+    animation: rotate 1s 5s 1;
+    transform-origin: center center;
+}
+
+#icon-canvas img:hover, #icon-canvas img.focus-img:active {
+    transition-property: all;
+    transition-timing-function: ease-in;
+    opacity: 1;
+    transform-origin: center center;
+}
+
+.icons-grid {
+    border: solid 1px white;
+    width: 100%;
+    height: 100%;
+    -webkit-transform-origin: right top;
+    transform-origin: right top;
+}
+
+.icons-grid tr {
+    background-color: white;
+}
+
+.icons-grid td {
+    background-color: white !important;
+    vertical-align: top;
+    border: solid 1px white !important;
+    transition: all ease-in 0.5s;
+}
+
+.icons-grid td:hover {
+    transition: all ease-in 0.5s;
+}
+
+.icons-grid td.no-icon {
+    background-color: transparent;
+}
+
+.focus-img {
+    cursor: pointer;
+}
+
+.icon-title {
+    position: absolute;
+    color: #aaa;
+    margin-top: -20px;
+    text-align: center;
+}
