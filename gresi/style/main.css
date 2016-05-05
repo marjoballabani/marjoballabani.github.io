@@ -1,0 +1,150 @@
+* {
+    font-family: Arial;
+    font-weight: 300;
+}
+
+*::selection {
+    background-color: white !important;
+}
+
+b {
+    font-weight: 600 !important;
+}
+
+body {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+#icon-canvas {
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.footer {
+    /* width: 600px; */
+    margin: auto;
+    bottom: 0;
+    background-color: rgba(255,255,255,1);
+    color: #333;
+    font-weight: 300;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    text-align: center;
+    font-size: 0.9em;
+    padding: 20px;
+    z-index: 999999999;
+    font-size: 12px;
+    position: fixed;
+    /* border: solid 1px white; */
+}
+
+
+.modal {
+    width: 800px;
+    /* left: 0px; */
+    /* right: 0px; */
+    /* top: 0px !important; */
+    /* bottom: 0px !important; */
+    margin: auto;
+    color: #FFF;
+    font-weight: 300 !important;
+    padding: 40px;
+    display: table;
+    z-index: 2147483647;
+    /* position: absolute !important; */
+}
+
+.data {
+    bottom: 0;
+    margin: auto;
+    vertical-align: middle;
+    display: table-cell;
+    text-align: justify;
+}
+
+
+.service {
+
+}
+
+.service h3 {
+    font-size: 0.9em;
+    margin: 0;
+    padding: 0;
+    color: #14aaa0;
+}
+
+.service p {
+    font-size: 0.9em;
+    margin: 0 0 15px 0;
+}
+
+.orange {
+    color: #f05a28;
+}
+
+.logo {
+    z-index: 100000000000000000;
+    width: 730px;
+    text-align: center;
+    margin: auto;
+    top:  0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    position: fixed;
+    padding: 30px;
+    background-color: white;
+}
+
+.centered {
+    text-align: center;
+}
+
+@media (max-width: 880px) {
+    .logo, .modal {
+        width: 500px;
+    }
+}
+
+@media (max-width: 600px) {
+    .modal {
+        width: 300px;
+    }
+
+    .logo {
+        width: 300px;
+    }
+}
+
+.exit-btn {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    background: url(../assets/imgs/exit-icon.png) no-repeat center;
+    background-size: 15px;
+}
+
+.modal-wrapper {
+
+}
+
+.icon-title {
+    position: absolute;
+    color: #aaa;
+    margin-top: -20px;
+    text-align: center;
+}
