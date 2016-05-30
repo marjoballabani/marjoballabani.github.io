@@ -82,6 +82,7 @@ function initMap() {
     document.getElementById('polygon-button').addEventListener('click', function () {
         addPolygon(polygon, map);
         document.getElementById('delete-polygon-button').style.display = 'block';
+        map.panTo({lat: 25.774, lng: -80.190});
     });
     document.getElementById('delete-polygon-button').addEventListener('click', function () {
         removePolygon(polygon)
@@ -91,17 +92,19 @@ function initMap() {
     document.getElementById('circle-button').addEventListener('click', function () {
         addCircles(map);
         document.getElementById('delete-circle-button').style.display = 'block';
+        map.panTo({lat: 41.878, lng: -87.629});
     });
 
     document.getElementById('delete-circle-button').addEventListener('click', function () {
         deleteCircles();
         document.getElementById('delete-circle-button').style.display = 'none';
     });
-    
+
     // POLYLINE
     document.getElementById('polyline-button').addEventListener('click', function () {
         addPolyline(polyLine, map);
         document.getElementById('delete-polyline-button').style.display = 'block';
+        map.panTo({lat: 21.291, lng: -157.821});
     });
 
     document.getElementById('delete-polyline-button').addEventListener('click', function () {
@@ -162,7 +165,7 @@ var deleteCircles = function () {
 };
 
 var addPolyline = function (polyline, map) {
-  polyline.setMap(map);  
+    polyline.setMap(map);
 };
 
 var deletePolyline = function (polyline) {
