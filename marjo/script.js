@@ -69,6 +69,11 @@ function initMap() {
         strokeOpacity: 1.0
     });
 
+    // DRIVE Direction
+    var directionService = new google.maps.DirectionsService;
+    var directionDisplay = new google.maps.DirectionsRenderer;
+    directionDisplay.setMap(map);
+
     // MARKER
     document.getElementById('marker-button').addEventListener('click', function () {
         addMarker(marker, map, infoWindow);
@@ -110,6 +115,19 @@ function initMap() {
     document.getElementById('delete-polyline-button').addEventListener('click', function () {
         deletePolyline(polyLine);
         document.getElementById('delete-polyline-button').style.display = 'none';
+    });
+
+    // DIRECTION
+    document.getElementById('destination').addEventListener('change', function () {
+        drawDirection(directionService, directionDisplay);
+    });
+    document.getElementById('start').addEventListener('change', function () {
+        drawDirection(directionService, directionDisplay);
+    })
+
+    var geoCoder = new google.maps.Geocoder();
+    document.getElementById('destination-button').addEventListener('click', function () {
+        getAddress(geoCoder, map);
     })
 }
 /**
@@ -170,6 +188,33 @@ var addPolyline = function (polyline, map) {
 
 var deletePolyline = function (polyline) {
     polyline.setMap(null)
+};
+
+var drawDirection = function (directionService, directionDisplay) {
+    directionService.route({
+        origin: document.getElementById('start').value,
+        destination: document.getElementById('destination').value,
+        travelMode: google.maps.TravelMode.DRIVING
+    }, function (response, status) {
+        if (status === google.maps.DirectionsStatus.OK) {
+            directionDisplay.setDirections(response);
+        } else {
+            alert('error')
+        }
+    })
+};
+
+var getAddress = function (geoCoder, map) {
+    var address = document.getElementById('address').value;
+    geoCoder.geocode({'address': address}, function (response, status) {
+        if (status === google.maps.GeocoderStatus.OK) {
+            map.panTo(response[0].geometry.location);
+            var marker = new google.maps.Marker({
+                map: map,
+                position: response[0].geometry.location
+            })
+        }
+    })
 };
 
 /* Bejm trigger funksionin qe inicializon mapen */

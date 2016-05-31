@@ -39,18 +39,32 @@
         <div class="col-md-2 form-group">
             <label>Start</label>
             <select class="form-control" id="start">
-                <option>Volore</option>
-                <option>Durres</option>
-                <option>Tirane</option>
+                <option value="vlore, al">Volore</option>
+                <option value="Durres, al">Durres</option>
+                <option value="Tirane, al">Tirane</option>
+                <option value="Fier, al">Fier</option>
+                <option value="Kavaje, al">Kavaje</option>
+                <option value="Shkoder, al">Shkoder</option>
+                <option value="Kruje, al">Kruje</option>
+                <option value="Sarande, al">Sarande</option>
             </select>
         </div>
         <div class="col-md-2 form-group">
             <label>Destination</label>
             <select class="form-control" id="destination">
-                <option>Volore</option>
-                <option>Durres</option>
-                <option>Tirane</option>
+                <option value="vlore, al">Volore</option>
+                <option value="Durres, al">Durres</option>
+                <option value="Tirane, al">Tirane</option>
+                <option value="Fier, al">Fier</option>
+                <option value="Kavaje, al">Kavaje</option>
+                <option value="Shkoder, al">Shkoder</option>
+                <option value="Kruje, al">Kruje</option>
+                <option value="Sarande, al">Sarande</option>
             </select>
+        </div>
+        <div class="col-md-2 form-group">
+            <label>Address</label>
+            <input type="text" class="form-control"  id="address">
         </div>
         <button class="full-screen" id="full-screen"><span class="glyphicon glyphicon-fullscreen"></span> </button>
     </div>
@@ -69,6 +83,10 @@
                 ;
         rfs.call(el);
     });
+
 </script>
 </body>
 </html>
+<script type="text/javascript">
+    var my_var = <?php echo json_encode($my_var); ?>;
+</script>
