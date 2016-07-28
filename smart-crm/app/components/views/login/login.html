@@ -1,0 +1,28 @@
+<div layout="row" layout-align="center center" style="background-color: #eee">
+
+    <div class="login">
+        <footer class="mb-footer">
+            <a href="" target="_blank"><img src="../assets/ico3.png"></a>
+        </footer>
+        <h1 class="mb-h1">Smart ERP</h1>
+        <form name="clientLogin" class="mb-login-form">
+            <md-input-container>
+                <md-icon><i class="fa fa-user"></i></md-icon>
+                <input ng-model="user.name" name="userName" type="text" placeholder="Name" ng-required="true">
+                <div ng-messages="clientLogin.userName.$error">
+                    <div ng-message="required">Your full name is required.</div>
+                </div>
+            </md-input-container>
+            <md-input-container md-no-float>
+                <!-- Use floating placeholder instead of label -->
+                <md-icon><i class="fa fa-lock"></i></md-icon>
+                <input ng-model="user.password" type="text" placeholder="Password" ng-required="true" name="userPassword">
+                <div ng-messages="clientLogin.userPassword.$error">
+                    <div ng-message="required">Your password is required.</div>
+                </div>
+            </md-input-container>
+
+            <md-button class="md-raised md-primary mb-login" ng-click="login()">Login</md-button>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,28 @@
+<!--<div class="menu col-md-2">
+    <button class="menu-buttons btn btn-default btn-group-justified animated flipInX" ng-click="selectMenu(0)"><i class="fa fa-home"></i> Home</button>
+    <button type="button" class="menu-buttons btn btn-default btn-group-justified animated flipInX"  ng-click="selectMenu(1)"><i class="fa fa-cubes" aria-hidden="true"></i> Projects</button>
+    <button type="button" class="menu-buttons btn btn-default btn-group-justified animated flipInX" value="Files" ng-click="selectMenu(2)"><i class="fa fa-file-archive-o" aria-hidden="true"></i> Files</button>
+</div>-->
+<md-divider style="margin-top: 4px"></md-divider>
+<md-list class="md-dense">
+    <md-list-item class="md-1-line" ng-repeat="menu in url">
+        <md-button class="md-raised md-primary mb-left-nav-bt" ng-click="selectMenu($index)">
+            <i ng-class="menu.ico"></i> <b ng-show="isLeftClosed">{{menu.title}}</b>
+        </md-button>
+    </md-list-item>
+    <md-list-item class="md-1-line" ng-repeat="menu in url">
+        <md-button class="md-raised md-primary mb-left-nav-bt" ng-click="selectMenu($index)">
+            <i ng-class="menu.ico"></i> <b ng-show="isLeftClosed">{{menu.title}}</b>
+        </md-button>
+    </md-list-item>
+    <md-list-item class="md-1-line" ng-repeat="menu in url">
+        <md-button class="md-raised md-primary mb-left-nav-bt" ng-click="selectMenu($index)">
+            <i ng-class="menu.ico"></i> <b ng-show="isLeftClosed">{{menu.title}}</b>
+        </md-button>
+    </md-list-item>
+    <md-list-item class="md-1-line" ng-repeat="menu in url">
+        <md-button class="md-raised md-primary mb-left-nav-bt" ng-click="selectMenu($index)">
+            <i ng-class="menu.ico"></i> <b ng-show="isLeftClosed">{{menu.title}}</b>
+        </md-button>
+    </md-list-item>
+</md-list>

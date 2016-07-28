@@ -1,0 +1,72 @@
+.menu {
+    padding: 0px;
+    background-color: #f8f8f8;
+    height: 92vh;
+}
+.menu-buttons {
+    border-radius: 0px !important;
+    padding-bottom: 2px;
+    height: 50px;
+}
+.navigation {
+    margin: 0px !important;
+    border-radius: 0px !important;
+}
+.logo {
+    width: 58px;
+    padding: 0px;
+    /*margin-top: -13px;
+    margin-left: 35px;*/
+}
+.dash-title {
+    font-size: 20px;
+    /*border-bottom: 2px solid #777777;*/
+}
+.dash-title span {
+    border-radius: 0px !important;
+}
+
+.back-ico {
+    position: relative;
+    left: 44%;
+    font-size: 130px;
+    top: 173px;
+    opacity: 0.2;
+}
+
+.mb-left-nav-bt {
+    width: 100%;
+    margin: 0px !important;
+    height: 45px;
+}
+
+.mb-right-togle {
+    position: fixed;
+    z-index: 999999;
+    right: 9px;
+    top: -4px;
+}
+
+.mb-close-left {
+    position: absolute;
+    right: 1px;
+    bottom: -1px;
+}
+
+.mb-left-open {
+    width: 260px !important;
+    transition-property: width;
+    transition-duration: 0.3s;
+}
+
+.mb-left-close {
+    width: 100px !important;
+    transition-property: width;
+    transition-duration: 0.3s;
+}
+
+.rotate {
+    -ms-transform: rotate(90deg); /* IE 9 */
+    -webkit-transform: rotate(90deg); /* Chrome, Safari, Opera */
+    transform: rotate(90deg);
+}

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html ng-app="SmartCrmApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Smart CRM</title>
+    <link href="lib/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="lib/bower_components/animate.css/animate.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="lib/bower_components/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="lib/bower_components/angular-material/angular-material.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="lib/bower_components/angular-material-data-table/dist/md-data-table.min.css" rel="stylesheet" type="text/css"/>
+    <link href="app/components/views/login/login.css" rel="stylesheet">
+    <link href="app/style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<div ng-view>
+
+    <!--Main app view-->
+
+</div>
+<!--Angular-->
+<script src="lib/bower_components/angular/angular.min.js"></script>
+<script src="lib/bower_components/angular-route/angular-route.min.js"></script>
+<script src="lib/bower_components/angular-aria/angular-aria.js"></script>
+<script src="lib/bower_components/angular-animate/angular-animate.js"></script>
+<script src="lib/bower_components/angular-material/angular-material.js"></script>
+<script src="lib/bower_components/Chart.js/dist/Chart.js"></script>
+<script src="lib/bower_components/angular-chart.js/dist/angular-chart.min.js"></script>
+<script type="text/javascript" src="lib/bower_components/angular-material-data-table/dist/md-data-table.js"></script>
+<!--App-->
+<script src="app/app.js"></script>
+<script src="app/Constants.js"></script>
+<!--Controllers-->
+<script src="app/components/controllers/AppCtrl.js"></script>
+<script src="app/components/controllers/Dashboard.js"></script>
+<script src="app/components/controllers/LoginCtrl.js"></script>
+<script src="app/components/controllers/SettingsCtrl.js"></script>
+<script src="app/components/controllers/ProjectsCtrl.js
+"></script>
+<!--Factories-->
+<script src="app/components/factories/DataFactory.js"></script>
+<script src="app/components/factories/Http.js"></script>
+<script src="app/components/factories/Utils.js"></script>
+<script src="app/components/directives/MenuDirective.js"></script>
+</body>
+</html>

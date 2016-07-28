@@ -1,0 +1,67 @@
+<div layout="column" style="height:100vh;" ng-cloak>
+    <section layout="row" flex>
+        <!-- Left menu -->
+        <md-sidenav ng-class="{'mb-left-close': !isLeftClosed, 'mb-left-open': isLeftClosed}"
+                    class="md-sidenav-left"
+                    md-component-id="left"
+                    md-is-locked-open="$mdMedia('gt-md')"
+                    md-disable-backdrop
+                    md-whiteframe="4">
+            <md-toolbar class="md-theme-indigo">
+                <i class="material-icons mb-close-left" ng-click="mbCloseLeft()">
+                    <i class="fa fa-thumb-tack"
+                       ng-class="{'': isLeftClosed, 'rotate': !isLeftClosed}">
+                    </i>
+                </i>
+                <h1 class="md-toolbar-tools">
+                    <img class="logo animated rotateIn" alt="Brand" src="assets/ico3.png"> <label ng-show="isLeftClosed">&nbsp Smart ERP</label>
+                </h1>
+            </md-toolbar>
+            <md-content style="background-color: whitesmoke; padding:4px">
+                <menu-directive></menu-directive>
+                <!--<md-button ng-click="closeLeft()" class="md-primary" hide-gt-md>
+                    Close Sidenav Left
+                </md-button>-->
+                <p hide show-gt-md>
+                    This sidenav is locked open on your device. To go back to the default behavior,
+                    narrow your display.
+                </p>
+            </md-content>
+        </md-sidenav>
+        <!--Main contet-->
+        <md-sidenav class="md-sidenav-right md-whiteframe-4dp" md-component-id="right">
+            <md-toolbar class="md-theme-light">
+                <h1 class="md-toolbar-tools">Sidenav Right</h1>
+            </md-toolbar>
+            <md-content layout-padding>
+                <form>
+                    <md-input-container>
+                        <label for="testInput">Test input</label>
+                        <input type="text" id="testInput"
+                               ng-model="data" md-autofocus>
+                    </md-input-container>
+                </form>
+            </md-content>
+        </md-sidenav>
+        <!-- Right menu -->
+        <md-content flex>
+            <md-button class="md-icon-button" aria-label="More"
+                       ng-click="toggleLeft()" hide-gt-md>
+                <i class="material-icons"><i class="material-icons">format_align_left</i></i>
+            </md-button>
+            <md-button class="md-fab md-mini md-primary mb-right-togle" aria-label="More"
+                       ng-click="toggleRight()"
+                       ng-hide="isOpenRight()">
+                <i class="material-icons" style="margin-top: 5px;">perm_identity</i>
+            </md-button>
+            <md-subheader class="md-warn">
+                <span class="label label-default">{{selectedUrl.title}}</span>
+            </md-subheader>
+            <!---------------->
+            <div layout="column" ng-include="selectedUrl.url">
+            </div>
+            <!---------------->
+            <div flex></div>
+        </md-content>
+    </section>
+</div>
