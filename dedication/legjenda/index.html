@@ -10,24 +10,34 @@
 </head>
 <body>
 <script>
-
+    var vars = [], hash;
+    $(function ()
+    {
+        var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+        for(var i = 0; i < hashes.length; i++)
+        {
+            hash = hashes[i].split('=');
+            vars.push(hash[0]);
+            vars[hash[0]] = hash[1];
+        }
+        return vars;
+    });
     $( function() {
         $( '.type-text' ).each( function() {
             var items = $( this ).attr( 'title' ) + ';' + $( this ).text();
             $( this ).empty().attr( 'title', '' ).teletype( {
-                text: ["Me thuaj qe jam legjend", "Marjo je legjenddddd"
+                text: ["Me thuaj qe jam legjend", hash[1] + " je legjenddddd"
                 ],
                 typeDelay: 10,
                 backDelay: 5,
                 cursor: '▋',
                 delay: 2000,
                 preserve: false,
-                prefix: '[marjo@legjenda ~]# ',
+                prefix: '[kreatx@root ~]# ',
                 loop: 0
             } );
         } );
     } );
-
 </script>
 
 <div class="type-text">
