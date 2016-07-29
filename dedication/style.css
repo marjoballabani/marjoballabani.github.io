@@ -7,6 +7,9 @@ body {
     font-size: 40pt;
     line-height: 1.5;
     padding: 2%;
+    height: 91vh;
+    background-image: url("t.gif");
+    background-size: 193vh;
 }
 .type-text {
     color:white;
