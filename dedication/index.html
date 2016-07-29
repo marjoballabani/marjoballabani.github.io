@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Greisi</title>
+    <script src="jquery.js" type="text/javascript"></script>
+    <script src="jquery.teletype.js"></script>
+    <script src="script.js" type="text/javascript"></script>
+    <link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<script>
+
+    $( function() {
+        $( '.type-text' ).each( function() {
+            var items = $( this ).attr( 'title' ) + ';' + $( this ).text();
+            $( this ).empty().attr( 'title', '' ).teletype( {
+                text: ["Ti je ylli im udheqes qe rrugen me ndricon...",
+                    "Ti je engjelli im i vogel qe nga cdo rrezik me mbron...",
+                        "Ne qiell te kerkoja por ne fnd ne tok te gjeta"
+                ],
+                typeDelay: 10,
+                backDelay: 5,
+                cursor: '▋',
+                delay: 2000,
+                preserve: false,
+                prefix: '[you@myife ~]# ',
+                loop: 0
+            } );
+        } );
+    } );
+
+</script>
+
+<div class="type-text">
+</div>
+</body>
+</html>
